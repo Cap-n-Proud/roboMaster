@@ -20,7 +20,7 @@ logging.basicConfig(
     format=f"%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s",
 )
 # test
-# We log teh following events:
+# We log the following events:
 # -Pump ON
 # -Pump OFF
 # -Lights ON
