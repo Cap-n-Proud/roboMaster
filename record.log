@@ -1,0 +1,9 @@
+2021-01-06 15:51:57,360 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-06 15:56:12,628 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-06 23:58:54,317 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-07 00:00:53,519 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-07 00:01:20,867 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-07 00:16:23,786 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-07 00:27:24,956 INFO server Thread-3 : Pump is ON
+2021-01-07 00:27:35,470 INFO server Thread-3 : Pump is OFF
+2021-01-07 00:29:24,956 INFO server Thread-124 : Pump is ON

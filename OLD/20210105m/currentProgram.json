@@ -1,0 +1,9 @@
+{
+  "progName": "This is the current program",
+  "pumpStartEvery": 60,
+  "pumpRunTime": 10,
+  "pumpStopHours": "20:00, 04:00",
+  "lightBrightness": 80,
+  "RGB": "10 100 210",
+  "lightsON": "04:00, 20:00"
+}

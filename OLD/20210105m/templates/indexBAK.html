@@ -1,0 +1,237 @@
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+   </head>
+   <body>
+      <table>
+         <tr>
+            <td>
+              <form action = "result" method = "POST">
+                <input type = "hidden" id="progr" name="progr" value = "12345" />
+                <input class="button button3" type = "submit" value = "submit" />
+              </form>
+
+              <button class="button button3" onclick="changeProgram()">change program</button></td>
+            <td>
+               <label for="prg">Choose a program:</label>
+               <select id="PRGsel" onchange="loadProgram(this.value)">
+                  <option value="">-- Select --</option>
+               </select>
+            </td>
+            <td><span id="progLabel"></span></td>
+         </tr>
+         <tr>
+            <td><button onclick="topFunction()" id="myBtn" title="Go to top">Top</button></td>
+            <td></td>
+            <td></td>
+         </tr>
+         <tr>
+            <td>
+               <label for="LEDBrightness">Color:</label>
+            </td>
+            <td>   <input type="range" min="0" max="100" value="50"  id="LEDBrightness">
+               <label for="LEDColor"></label>
+               <input type="color" id="LEDColor" name="favcolor" onchange="getColor()">
+            </td>
+            <td><span id="brightnessLabel"></span><span id="colorLabel"></td>
+         </tr>
+         <tr>
+            <td>Pump</td>
+            <td>
+               <label class="switch">
+               <input id="pump" type="checkbox" value="ON" onchange="getPump()">
+               <span class="slider round"></span>
+               </label>
+            </td>
+            <td><span id="pumpLabel"></span></td>
+         </tr>
+         <tr>
+          <td colspan="3" id="infoBox">&nbsp;</td>
+        </tr>
+      </table>
+<br>
+      <table id="currentProgramLabel">
+        <tr>
+           <td></td>
+           <td></td>
+           <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+         </tr>
+
+      </table>
+
+      <div id="myData"></div>
+      <script>
+      //Calls functions to lad defaults et
+        document.addEventListener("DOMContentLoaded", function() {
+          getCurrentProgram();
+          loadSelect();
+        });
+
+           //Get the button
+         var mybutton = document.getElementById("myBtn");
+         mybutton.style.display = "block";
+
+         // When the user scrolls down 20px from the top of the document, show the button
+         window.onscroll = function() {scrollFunction()};
+
+         function scrollFunction() {
+           if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+             mybutton.style.display = "block";
+           } else {
+             mybutton.style.display = "none";
+           }
+         }
+
+         // When the user clicks on the button, scroll to the top of the document
+         function topFunction() {
+           document.body.scrollTop = 0;
+           document.documentElement.scrollTop = 0;
+         }
+
+         var slider = document.getElementById("LEDBrightness");
+         var output = document.getElementById("brightnessLabel");
+         output.innerHTML = slider.value;
+
+         slider.oninput = function() {
+           output.innerHTML = this.value;
+         }
+
+         //Change pump status based on the checkbox TODO based on the arduino feedback
+         function getPump() {
+           var x = document.getElementById("pump");
+           if (x.checked == true) {
+              document.getElementById("pumpLabel").innerHTML = "ON";
+          }
+          else{
+           document.getElementById("pumpLabel").innerHTML = "OFF";
+         }}
+
+         function getColor() {
+           var x = document.getElementById("LEDColor").value;
+           document.getElementById("colorLabel").innerHTML = hexTorgb(x);
+         }
+
+         // Use this to program the server and arduino to change program
+         function changeProgram(){
+                var URL = "http://127.0.0.1:5000/result"
+                var data =  {'firstname': "Mr.", 'lastname': "My Father's Son"}
+
+                           // Send a post request
+                fetch(URL, {
+                method: "POST",
+                body: JSON.stringify(data),
+                headers: {
+                   "Content-type": "application/json; charset=UTF-8"
+                }
+                })
+                // document.getElementById("infoBox").innerHTML = "Program updated"
+                console.log(data)
+          }
+
+
+          //This is used to visualize The program selected from teh select
+         function loadProgram(ID){
+             document.getElementById("progLabel").innerHTML = ""
+
+           fetch('http://127.0.0.1:5000/program')
+               .then(function (response) {
+                   return response.json();
+               })
+               .then(function (data) {
+                   var PrgContainer = document.getElementById("progLabel");
+                     for (name in data[ID]) {
+                     var div = document.createElement("div");
+                     div.innerHTML = name + ' ' + data[ID][name];
+                     PrgContainer.appendChild(div);
+
+                   }
+                   // document.getElementById("LEDBrightness").value = data['lightBrightness']
+                   document.getElementById("LEDBrightness").value = data[ID]['lightBrightness']
+                   var rgb = data[ID]['RGB'].split(" ");
+                   //document.getElementById("LEDColor").value = rgbToHex(rgb[0],rgb[1],rgb[2])
+                   //hexColor = rgbToHex(rgb[0],rgb[1],rgb[2])
+                   hexColor = R_G_BtoHEX(rgb[0],rgb[1],rgb[2])
+                   console.log(data[ID]['lightBrightness'])
+                   document.getElementById("LEDColor").value = hexColor//"#86FA2E"//rgbToHex(rgb[0],rgb[1],rgb[2])//#86FA2E
+                   document.getElementById("infoBox").innerHTML = data[ID]
+                   document.getElementById("progr").value =  data[ID]
+                   console.log(document.getElementById("progr").value)
+                   // var rgb = (data[ID]['RGB'].split(/[ ,]+/).join(','))
+               })
+               .catch(function (err) {
+                   console.log('error: ' + err);
+               });
+
+
+         }
+
+         function loadSelect(){
+           fetch('http://127.0.0.1:5000/program')
+               .then(function (response) {
+                   return response.json();
+               })
+               .then(function (data) {
+                 var ele = document.getElementById('PRGsel');
+                      for (var i = 0; i < data.length; i++) {
+                          // POPULATE SELECT ELEMENT WITH JSON.
+                          ele.innerHTML = ele.innerHTML +
+                              '<option value="' + i + '">' + data[i]['progName'] + '</option>';
+                      }
+
+                    })
+
+
+         }
+
+         function getCurrentProgram(){
+           fetch('http://127.0.0.1:5000/currentProgram')
+               .then(function (response) {
+                   return response.json();
+               })
+               .then(function (data) {
+                 const keys = Object.keys(data);
+                 var ele = document.getElementById('currentProgramLabel');
+                 keys.forEach((key, index) => {
+                     // console.log(`${key}: ${data[key]}`);
+                     ele.innerHTML = ele.innerHTML +
+                         '<tr><td>'+ key + '</td><td>'+ data[key] + '</td><td></td></tr>';
+                 });
+                      for (var i = 0; i < data; i++) {
+                          // POPULATE SELECT ELEMENT WITH JSON.
+                          ele.innerHTML = ele.innerHTML +
+                              '<tr><td>' + data[i] + '</td></tr>';
+                      }
+
+                    })
+
+
+         }
+
+         function hexTorgb(hex) {
+           return ['0x' + hex[1] + hex[2] | 0, '0x' + hex[3] + hex[4] | 0, '0x' + hex[5] + hex[6] | 0];
+         }
+
+         function R_G_BtoHEX(red, green, blue) {
+             red = red < 0 ? 0 : red > 255 ? 255: red;
+             green = green < 0 ? 0 : green > 255 ? 255: green;
+             blue = blue < 0 ? 0 : blue > 255 ? 255: blue;
+
+             return "#" +
+               ("0" + parseInt(red, 10).toString(16)).slice(-2) +
+               ("0" + parseInt(green, 10).toString(16)).slice(-2) +
+               ("0" + parseInt(blue, 10).toString(16)).slice(-2);
+         }
+
+
+      </script>
+   </body>
+</html>
