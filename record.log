@@ -7,3 +7,7 @@
 2021-01-07 00:27:24,956 INFO server Thread-3 : Pump is ON
 2021-01-07 00:27:35,470 INFO server Thread-3 : Pump is OFF
 2021-01-07 00:29:24,956 INFO server Thread-124 : Pump is ON
+2021-01-07 01:48:40,212 WARNING server Thread-1 : Received non-JSON from Arduino: b'e":"T","pumpON":0,"RGB":"0 0 0","brightness":0}\r\n'
+2021-01-07 01:53:12,994 WARNING server Thread-1 : Received non-JSON from Arduino: b'":"0 0 0","brightness":0}\r\n'
+2021-01-07 01:53:12,997 WARNING server Thread-1 : Received non-JSON from Arduino: b'0","brightness":0}\r\n'
+2021-01-07 01:53:13,044 WARNING server Thread-1 : Received non-JSON from Arduino: b'0","brightness":0}\r\n'

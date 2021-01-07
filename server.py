@@ -19,7 +19,7 @@ logging.basicConfig(
     level=logging.DEBUG,
     format=f"%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s",
 )
-
+# test
 # We log teh following events:
 # -Pump ON
 # -Pump OFF
@@ -174,7 +174,7 @@ def handle_data(data):
             print(dataJSON)
 
     except ValueError as e:
-        app.logger.warning("Received non-JSON from Arduino: " + data)
+        app.logger.warning("Received non-JSON from Arduino: " + str(data))
         print(data)
 
 
