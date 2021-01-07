@@ -19,7 +19,7 @@ logging.basicConfig(
     level=logging.DEBUG,
     format=f"%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s",
 )
-# test
+# see last post to fix github issues: https://stackoverflow.com/questions/23344320/there-isnt-anything-to-compare-nothing-to-compare-branches-are-entirely-diffe
 # We log the following events:
 # -Pump ON
 # -Pump OFF
