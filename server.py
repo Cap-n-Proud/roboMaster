@@ -13,6 +13,7 @@ from L_events import *
 from serial.tools import list_ports
 
 app = Flask(__name__)
+app.debug = True
 
 logging.basicConfig(
     filename="record.log",
@@ -72,18 +73,34 @@ def index():
     )
 
 
+@app.route("/status")
+def status():
+    return render_template(
+        "status.html",
+        async_mode=socketio.async_mode,
+        progr=getProg(),
+        currentProg=getCurrentProgr(),
+    )
+
+
 # API programming
 # Get list of programs as JSON
-@app.route("/programs")
+@app.route("/api/programs")
 def program():
     print("Programs called")
     return jsonify(getProg())
 
 
 # Get current program as JSON
-@app.route("/currentProgram")
+@app.route("/api/currentProgram")
 def currentProgram():
     return jsonify(getCurrentProgr())
+
+
+# Get current program as JSON
+@app.route("/api/s")
+def getStatus():
+    return jsonify(getStatus())
 
 
 # https://attacomsian.com/blog/using-javascript-fetch-api-to-get-and-post-data
@@ -145,6 +162,12 @@ def test_disconnect():
 # Retrieve the list of programs, used to populate the indey.html file
 def getProg():
     with open("programs.json") as f:
+        data = json.load(f)
+    return data
+
+
+def getStatus():
+    with open("status.json") as f:
         data = json.load(f)
     return data
 

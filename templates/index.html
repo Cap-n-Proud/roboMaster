@@ -194,7 +194,7 @@
       }
       // Use this to program the server and arduino to change program
       function changeProgram() {
-        var URL1 = 'http://127.0.0.1:5000/programs'
+        var URL1 = 'http://127.0.0.1:5000/api/programs'
         var req = new XMLHttpRequest();
         var ID = document.getElementById("PRGsel").value
         req.open('GET', URL1, false);
@@ -233,7 +233,7 @@
       function loadProgram(ID) {
         document.getElementById("progLabel").innerHTML = ""
 
-        fetch('http://127.0.0.1:5000/programs')
+        fetch('http://127.0.0.1:5000/api/programs')
           .then(function(response) {
             return response.json();
           })
@@ -262,7 +262,7 @@
       }
 
       function loadSelect() {
-        fetch('http://127.0.0.1:5000/programs')
+        fetch('http://127.0.0.1:5000/api/programs')
           .then(function(response) {
             return response.json();
           })
@@ -280,7 +280,7 @@
       }
 
       function getCurrentProgram() {
-        fetch('http://127.0.0.1:5000/currentProgram')
+        fetch('http://127.0.0.1:5000/api/currentProgram')
           .then(function(response) {
             return response.json();
           })

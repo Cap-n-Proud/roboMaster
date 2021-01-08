@@ -11,3 +11,155 @@
 2021-01-07 01:53:12,994 WARNING server Thread-1 : Received non-JSON from Arduino: b'":"0 0 0","brightness":0}\r\n'
 2021-01-07 01:53:12,997 WARNING server Thread-1 : Received non-JSON from Arduino: b'0","brightness":0}\r\n'
 2021-01-07 01:53:13,044 WARNING server Thread-1 : Received non-JSON from Arduino: b'0","brightness":0}\r\n'
+2021-01-08 09:47:54,084 WARNING server Thread-1 : Received non-JSON from Arduino: b'","pumpON":0,"RGB":"0 0 0","brightness":0}\r\n'
+2021-01-08 09:47:54,085 WARNING server Thread-1 : Received non-JSON from Arduino: b'0","brightness":0}\r\n'
+2021-01-08 09:47:54,088 WARNING server Thread-1 : Received non-JSON from Arduino: b'0","brightness":0}\r\n'
+2021-01-08 09:47:55,202 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-08 09:47:55,702 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 100 200 
+2021-01-08 09:47:56,092 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-08 09:49:45,792 WARNING server Thread-1 : Received non-JSON from Arduino: b':"200 100 200","brightness":80}\r\n'
+2021-01-08 09:49:46,914 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-08 09:49:47,414 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 100 200 
+2021-01-08 09:49:47,797 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-08 09:50:27,203 WARNING server Thread-1 : Received non-JSON from Arduino: b'200 100 200","brightness":80}\r\n'
+2021-01-08 09:50:28,319 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-08 09:50:28,819 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 100 200 
+2021-01-08 09:50:29,209 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-08 09:55:18,728 WARNING server Thread-1 : Received non-JSON from Arduino: b'N":0,"RGB":"200 100 200","brightness":80}\r\n'
+2021-01-08 09:55:19,841 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-08 09:55:20,348 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 100 200 
+2021-01-08 09:55:20,735 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-08 09:58:35,327 WARNING server Thread-1 : Received non-JSON from Arduino: b'":"T","pumpON":0,"RGB":"200 100 200","brightness":80}\r\n'
+2021-01-08 09:58:36,439 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-08 09:58:36,942 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 100 200 
+2021-01-08 09:58:37,332 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-08 10:27:22,574 WARNING server Thread-1 : Received non-JSON from Arduino: b'00","brightness":80}\r\n'
+2021-01-08 10:27:22,575 WARNING server Thread-1 : Received non-JSON from Arduino: b':80}\r\n'
+2021-01-08 10:27:23,694 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-08 10:27:24,194 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 100 200 
+2021-01-08 10:27:24,583 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-08 10:27:45,320 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-08 10:27:45,823 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 100 200 
+2021-01-08 10:27:46,211 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-08 10:29:23,131 WARNING server Thread-1 : Received non-JSON from Arduino: b'0 100 200","brightness":80}\r\n'
+2021-01-08 10:29:24,254 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-08 10:29:24,754 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 100 200 
+2021-01-08 10:29:25,136 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-08 10:32:32,976 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-08 10:32:33,476 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 100 200 
+2021-01-08 10:32:33,866 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-08 10:34:17,571 WARNING server Thread-1 : Received non-JSON from Arduino: b'":"T","pumpON":0,"RGB":"200 100 200","brightness":80}\r\n'
+2021-01-08 10:34:17,572 WARNING server Thread-1 : Received non-JSON from Arduino: b':80}\r\n'
+2021-01-08 10:34:18,684 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-08 10:34:19,188 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 100 200 
+2021-01-08 10:34:19,576 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-08 10:36:50,149 WARNING server Thread-1 : Received non-JSON from Arduino: b'N":0,"RGB":"200 100 200","brightness":80}\r\n'
+2021-01-08 10:36:50,150 WARNING server Thread-1 : Received non-JSON from Arduino: b':80}\r\n'
+2021-01-08 10:36:51,269 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-08 10:36:51,769 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 100 200 
+2021-01-08 10:36:52,154 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-08 10:41:51,856 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-08 10:41:52,359 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 100 200 
+2021-01-08 10:41:52,749 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-08 10:42:22,319 WARNING server Thread-1 : Received non-JSON from Arduino: b'0}\r\n'
+2021-01-08 10:42:22,320 WARNING server Thread-1 : Received non-JSON from Arduino: b':80}\r\n'
+2021-01-08 10:42:23,434 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-08 10:42:23,938 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 100 200 
+2021-01-08 10:42:24,326 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-08 10:49:12,184 WARNING server Thread-1 : Received non-JSON from Arduino: b'GB":"200 100 200","brightness":80}\r\n'
+2021-01-08 10:49:13,304 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-08 10:49:13,804 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 100 200 
+2021-01-08 10:49:14,188 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-08 10:54:11,062 WARNING server Thread-1 : Received non-JSON from Arduino: b'pumpON":0,"RGB":"200 100 200","brightness":80}\r\n'
+2021-01-08 10:54:12,174 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-08 10:54:12,678 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 100 200 
+2021-01-08 10:54:13,066 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-08 11:00:19,115 WARNING server Thread-1 : Received non-JSON from Arduino: b'ess":80}\r\n'
+2021-01-08 11:00:20,234 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-08 11:00:20,734 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 100 200 
+2021-01-08 11:00:21,120 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-08 11:02:21,370 WARNING server Thread-1 : Received non-JSON from Arduino: b'pumpON":0,"RGB":"200 100 200","brightness":80}\r\n'
+2021-01-08 11:02:22,482 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-08 11:02:22,985 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 100 200 
+2021-01-08 11:02:23,375 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-08 11:09:23,955 WARNING server Thread-1 : Received non-JSON from Arduino: b'"200 100 200","brightness":80}\r\n'
+2021-01-08 11:09:25,069 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-08 11:09:25,569 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 100 200 
+2021-01-08 11:09:25,960 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-08 11:11:36,186 WARNING server Thread-1 : Received non-JSON from Arduino: b'":0,"RGB":"200 100 200","brightness":80}\r\n'
+2021-01-08 11:11:37,298 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-08 11:11:37,802 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 100 200 
+2021-01-08 11:11:38,191 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-08 11:12:26,164 WARNING server Thread-1 : Received non-JSON from Arduino: b'00","brightness":80}\r\n'
+2021-01-08 11:12:27,279 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-08 11:12:27,782 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 100 200 
+2021-01-08 11:12:28,171 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-08 11:13:38,054 WARNING server Thread-1 : Received non-JSON from Arduino: b' 200","brightness":80}\r\n'
+2021-01-08 11:13:39,168 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-08 11:13:39,672 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 100 200 
+2021-01-08 11:13:40,059 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-08 11:17:56,386 WARNING server Thread-1 : Received non-JSON from Arduino: b'brightness":80}\r\n'
+2021-01-08 11:17:57,498 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-08 11:17:58,002 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 100 200 
+2021-01-08 11:17:58,392 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-08 11:20:56,691 WARNING server Thread-1 : Received non-JSON from Arduino: b'GB":"200 100 200","brightness":80}\r\n'
+2021-01-08 11:20:57,807 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-08 11:20:58,311 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 100 200 
+2021-01-08 11:20:58,700 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-08 11:22:13,370 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-08 11:22:13,874 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 100 200 
+2021-01-08 11:22:14,256 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-08 12:02:12,361 INFO server Thread-1 : Info from Arduino: Pump start
+2021-01-08 12:02:12,755 INFO server Thread-3 : Pump is ON
+2021-01-08 12:02:42,890 INFO server Thread-1 : Info from Arduino: Pump stopped
+2021-01-08 12:02:43,283 INFO server Thread-3 : Pump is OFF
+2021-01-08 19:57:48,151 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-08 19:57:48,654 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 100 200 
+2021-01-08 19:57:49,043 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-08 19:59:49,890 WARNING server Thread-1 : Received non-JSON from Arduino: b'GB":"200 100 200","brightness":80}\r\n'
+2021-01-08 19:59:49,890 WARNING server Thread-1 : Received non-JSON from Arduino: b':80}\r\n'
+2021-01-08 19:59:49,891 WARNING server Thread-1 : Received non-JSON from Arduino: b':80}\r\n'
+2021-01-08 19:59:51,011 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-08 19:59:51,511 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 100 200 
+2021-01-08 19:59:51,901 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-08 20:01:01,005 INFO server Thread-1 : Info from Arduino: Brightness set to: 0%
+2021-01-08 20:01:01,400 INFO server Thread-75 : Lights OFF, RGB also set
+2021-01-08 21:37:21,616 WARNING server Thread-1 : Received non-JSON from Arduino: b'N":0,"RGB":"0 0 0","brightness":0}\r\n'
+2021-01-08 21:38:27,207 WARNING server Thread-1 : Received non-JSON from Arduino: b':0,"RGB":"0 0 0","brightness":0}\r\n'
+2021-01-08 21:38:27,208 WARNING server Thread-1 : Received non-JSON from Arduino: b'0","brightness":0}\r\n'
+2021-01-08 21:41:26,540 WARNING server Thread-1 : Received non-JSON from Arduino: b'":0,"RGB":"0 0 0","brightness":0}\r\n'
+2021-01-08 21:42:13,454 WARNING server Thread-1 : Received non-JSON from Arduino: b'"RGB":"0 0 0","brightness":0}\r\n'
+2021-01-08 21:58:47,979 WARNING server Thread-1 : Received non-JSON from Arduino: b'ss":0}\r\n'
+2021-01-08 21:58:47,980 WARNING server Thread-1 : Received non-JSON from Arduino: b'0","brightness":0}\r\n'
+2021-01-08 21:58:47,981 WARNING server Thread-1 : Received non-JSON from Arduino: b'0","brightness":0}\r\n'
+2021-01-08 22:01:21,682 WARNING server Thread-1 : Received non-JSON from Arduino: b'"brightness":0}\r\n'
+2021-01-08 22:01:21,682 WARNING server Thread-1 : Received non-JSON from Arduino: b'0","brightness":0}\r\n'
+2021-01-08 22:01:21,685 WARNING server Thread-1 : Received non-JSON from Arduino: b'0","brightness":0}\r\n'
+2021-01-08 22:02:56,982 WARNING server Thread-1 : Received non-JSON from Arduino: b'ON":0,"RGB":"0 0 0","brightness":0}\r\n'
+2021-01-08 22:03:58,037 WARNING server Thread-1 : Received non-JSON from Arduino: b'ghtness":0}\r\n'
+2021-01-08 22:03:58,038 WARNING server Thread-1 : Received non-JSON from Arduino: b'0","brightness":0}\r\n'
+2021-01-08 22:16:14,044 WARNING server Thread-1 : Received non-JSON from Arduino: b':0,"RGB":"0 0 0","brightness":0}\r\n'
+2021-01-08 22:16:14,044 WARNING server Thread-1 : Received non-JSON from Arduino: b'0","brightness":0}\r\n'
+2021-01-08 22:22:50,749 WARNING server Thread-1 : Received non-JSON from Arduino: b'0 0","brightness":0}\r\n'
+2021-01-08 22:22:50,750 WARNING server Thread-1 : Received non-JSON from Arduino: b'0","brightness":0}\r\n'
+2021-01-08 22:23:38,034 WARNING server Thread-1 : Received non-JSON from Arduino: b' 0","brightness":0}\r\n'
+2021-01-08 22:25:27,655 WARNING server Thread-1 : Received non-JSON from Arduino: b':"0 0 0","brightness":0}\r\n'
+2021-01-08 22:29:25,872 WARNING server Thread-1 : Received non-JSON from Arduino: b'0 0 0","brightness":0}\r\n'
+2021-01-08 22:30:45,614 WARNING server Thread-1 : Received non-JSON from Arduino: b'rightness":0}\r\n'
+2021-01-08 22:30:45,617 WARNING server Thread-1 : Received non-JSON from Arduino: b'0","brightness":0}\r\n'
+2021-01-08 22:30:45,619 WARNING server Thread-1 : Received non-JSON from Arduino: b'0","brightness":0}\r\n'
+2021-01-08 22:34:33,166 WARNING server Thread-1 : Received non-JSON from Arduino: b' 0 0","brightness":0}\r\n'
+2021-01-08 22:39:05,521 WARNING server Thread-1 : Received non-JSON from Arduino: b'"type":"T","pumpON":0,"RGB":"0 0 0","brightness":0}\r\n'
+2021-01-08 23:00:09,666 WARNING server Thread-1 : Received non-JSON from Arduino: b'mpON":0,"RGB":"0 0 0","brightness":0}\r\n'
+2021-01-08 23:11:24,362 WARNING server Thread-1 : Received non-JSON from Arduino: b'"brightness":0}\r\n'
+2021-01-08 23:11:24,380 WARNING server Thread-1 : Received non-JSON from Arduino: b'0","brightness":0}\r\n'
+2021-01-08 23:11:49,648 WARNING server Thread-1 : Received non-JSON from Arduino: b':0,"RGB":"0 0 0","brightness":0}\r\n'
+2021-01-08 23:12:57,041 WARNING server Thread-1 : Received non-JSON from Arduino: b'":"T","pumpON":0,"RGB":"0 0 0","brightness":0}\r\n'
+2021-01-08 23:12:57,042 WARNING server Thread-1 : Received non-JSON from Arduino: b'0","brightness":0}\r\n'
+2021-01-08 23:13:44,237 WARNING server Thread-1 : Received non-JSON from Arduino: b'":"0 0 0","brightness":0}\r\n'
+2021-01-08 23:18:23,968 WARNING server Thread-1 : Received non-JSON from Arduino: b'pON":0,"RGB":"0 0 0","brightness":0}\r\n'
+2021-01-08 23:18:56,059 WARNING server Thread-1 : Received non-JSON from Arduino: b'type":"T","pumpON":0,"RGB":"0 0 0","brightness":0}\r\n'
+2021-01-08 23:25:09,845 WARNING server Thread-1 : Received non-JSON from Arduino: b'pe":"T","pumpON":0,"RGB":"0 0 0","brightness":0}\r\n'
+2021-01-08 23:26:42,327 WARNING server Thread-1 : Received non-JSON from Arduino: b'"brightness":0}\r\n'
+2021-01-08 23:33:24,417 WARNING server Thread-1 : Received non-JSON from Arduino: b'\n'
+2021-01-08 23:33:24,422 WARNING server Thread-1 : Received non-JSON from Arduino: b'0","brightness":0}\r\n'
