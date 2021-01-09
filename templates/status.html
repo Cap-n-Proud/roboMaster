@@ -56,7 +56,7 @@
       //Calls functions to load defaults and info.
       document.addEventListener("DOMContentLoaded", function() {
 
-        createCheckBoxes();
+        // createCheckBoxes();
         getStatus();
         // t();
       });
@@ -184,41 +184,25 @@
             return response.json();
           })
           .then(function(data) {
-
-            // for (var t = 0; t < Object.keys(data.towers).length; i++) {
-            //   for (var l = 0; l < Object.keys(data.towers[t]).length; i++) {
-            //
-            //
-            //     for (var p = 0; p < Object.keys(data.towers[t]..pods).length; i++) {
-            //       console.log(data.towers[0].pods[0].plantName)
-            //       // var product = catalog.products[i];
-            //       //                 var productName = product.name;
-            //       //                 for(var j = 0; j < product.versions.length; j++)
-            //       //                 {
-            //       //                     var version = product.versions[j];
-            //       //                 }
-            //     }
-            //   }
-            // }
-            // var obj = graph.sparkData[i];
-            // console.log(obj);
-            // var crunchifyName;
-            // var crunchifyValue;
-            //
-            // document.writeln("<td>");
-            // document.writeln("<table border='0'  width=100 >");
-            //
-            // for (var key in obj) {
-            //
-            //   obj = data.towers
-            //   for (var key in data) {
-            //
-            // }
+            // Access the towers
+            for (var t = 0; t < (data.towers).length; t++) {
+              // Access the levels
+              for (var l = 0; l < data.towers[t].levels.length; l++) {
+                // Acces the pods
+                for (var p = 0; p < data.towers[t].levels[l].pods.length; p++) {
+                  console.log(t, l, p)
+                  console.log(data.towers[t].levels[l].pods[p].plantName)
+                }
+              }
+            }
             // https://stackoverflow.com/questions/19032954/why-is-jsonobject-length-undefined
             // console.log(data.lenght)
             // console.log(Object.keys(data.towers).length)
-            //
-            console.log(data.towers[0].tower01[0].level)
+            // //
+            // console.log(data.towers)
+            // console.log(data.towers[1].name)
+            // console.log(data.towers[1].levels[2].pods)
+            // console.log(data.lenght)
             // console.log(data.towers[0].tower01[1].pods[0].plantName)
             // console.log(data.towers[0].level)
           })

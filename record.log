@@ -163,3 +163,55 @@
 2021-01-08 23:26:42,327 WARNING server Thread-1 : Received non-JSON from Arduino: b'"brightness":0}\r\n'
 2021-01-08 23:33:24,417 WARNING server Thread-1 : Received non-JSON from Arduino: b'\n'
 2021-01-08 23:33:24,422 WARNING server Thread-1 : Received non-JSON from Arduino: b'0","brightness":0}\r\n'
+2021-01-08 23:43:16,309 ERROR server Thread-7 : Exception on /api/s [GET]
+Traceback (most recent call last):
+  File "/home/paolo/VEnv/roboGarden/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/paolo/VEnv/roboGarden/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/paolo/VEnv/roboGarden/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/paolo/VEnv/roboGarden/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/paolo/VEnv/roboGarden/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/paolo/VEnv/roboGarden/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "server.py", line 103, in getStatus
+    return jsonify(getStatus())
+  File "server.py", line 171, in getStatus
+    data = json.load(f)
+  File "/usr/lib/python3.8/json/__init__.py", line 293, in load
+    return loads(fp.read(),
+  File "/usr/lib/python3.8/json/__init__.py", line 357, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.8/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.8/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 9 column 9 (char 112)
+2021-01-08 23:58:35,970 WARNING server Thread-1 : Received non-JSON from Arduino: b'umpON":0,"RGB":"0 0 0","brightness":0}\r\n'
+2021-01-09 00:01:02,922 WARNING server Thread-1 : Received non-JSON from Arduino: b'"T","pumpON":0,"RGB":"0 0 0","brightness":0}\r\n'
+2021-01-09 00:05:54,690 WARNING server Thread-1 : Received non-JSON from Arduino: b'pumpON":0,"RGB":"0 0 0","brightness":0}\r\n'
+2021-01-09 00:16:51,165 WARNING server Thread-1 : Received non-JSON from Arduino: b',"RGB":"0 0 0","brightness":0}\r\n'
+2021-01-09 00:16:51,166 WARNING server Thread-1 : Received non-JSON from Arduino: b'0","brightness":0}\r\n'
+2021-01-09 00:16:51,167 WARNING server Thread-1 : Received non-JSON from Arduino: b'0","brightness":0}\r\n'
+2021-01-09 00:16:51,167 WARNING server Thread-1 : Received non-JSON from Arduino: b'0","brightness":0}\r\n'
+2021-01-09 00:26:12,699 WARNING server Thread-1 : Received non-JSON from Arduino: b'ss":0}\r\n'
+2021-01-09 00:26:12,700 WARNING server Thread-1 : Received non-JSON from Arduino: b'0","brightness":0}\r\n'
+2021-01-09 00:28:40,544 WARNING server Thread-1 : Received non-JSON from Arduino: b':0,"RGB":"0 0 0","brightness":0}\r\n'
+2021-01-09 00:28:40,545 WARNING server Thread-1 : Received non-JSON from Arduino: b'0","brightness":0}\r\n'
+2021-01-09 00:30:44,852 WARNING server Thread-1 : Received non-JSON from Arduino: b'B":"0 0 0","brightness":0}\r\n'
+2021-01-09 00:31:39,193 WARNING server Thread-1 : Received non-JSON from Arduino: b'GB":"0 0 0","brightness":0}\r\n'
+2021-01-09 00:33:43,483 WARNING server Thread-1 : Received non-JSON from Arduino: b'"RGB":"0 0 0","brightness":0}\r\n'
+2021-01-09 00:34:22,714 WARNING server Thread-1 : Received non-JSON from Arduino: b'0,"RGB":"0 0 0","brightness":0}\r\n'
+2021-01-09 00:38:11,109 WARNING server Thread-1 : Received non-JSON from Arduino: b'"0 0 0","brightness":0}\r\n'
+2021-01-09 00:40:57,005 WARNING server Thread-1 : Received non-JSON from Arduino: b'htness":0}\r\n'
+2021-01-09 00:40:57,007 WARNING server Thread-1 : Received non-JSON from Arduino: b'0","brightness":0}\r\n'
+2021-01-09 00:44:17,145 WARNING server Thread-1 : Received non-JSON from Arduino: b'RGB":"0 0 0","brightness":0}\r\n'
+2021-01-09 00:58:32,867 WARNING server Thread-1 : Received non-JSON from Arduino: b'T","pumpON":0,"RGB":"0 0 0","brightness":0}\r\n'
+2021-01-09 01:03:10,316 WARNING server Thread-1 : Received non-JSON from Arduino: b'type":"T","pumpON":0,"RGB":"0 0 0","brightness":0}\r\n'
+2021-01-09 01:08:52,388 WARNING server Thread-1 : Received non-JSON from Arduino: b'","pumpON":0,"RGB":"0 0 0","brightness":0}\r\n'
+2021-01-09 01:10:14,501 WARNING server Thread-1 : Received non-JSON from Arduino: b',"pumpON":0,"RGB":"0 0 0","brightness":0}\r\n'
+2021-01-09 01:11:03,242 WARNING server Thread-1 : Received non-JSON from Arduino: b'T","pumpON":0,"RGB":"0 0 0","brightness":0}\r\n'
+2021-01-09 01:11:03,252 WARNING server Thread-1 : Received non-JSON from Arduino: b'0","brightness":0}\r\n'
