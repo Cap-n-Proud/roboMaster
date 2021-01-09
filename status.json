@@ -9,21 +9,14 @@
             {
               "podID": "01-01-01",
               "plantID": 32,
-              "plantName": "Straberry",
+              "plantName": "Strawberry",
               "plantedDate": "2016-04-26T18:09:16Z",
               "harvestInDays": 30
             },
             {
               "podID": "01-01-02",
               "plantID": 32,
-              "plantName": "Straberry",
-              "plantedDate": "2016-04-26T18:09:16Z",
-              "harvestInDays": 30
-            },
-            {
-              "podID": "01-01-03",
-              "plantID": 32,
-              "plantName": "Straberry",
+              "plantName": "Strawberry",
               "plantedDate": "2016-04-26T18:09:16Z",
               "harvestInDays": 30
             }
@@ -33,21 +26,14 @@
           "level": "2",
            "pods":  [
              {
-               "podID": "121",
+               "podID": "01-02-01",
                "plantID": 32,
                "plantName": "Lettuce",
                "plantedDate": "2016-04-26T18:09:16Z",
                "harvestInDays": 30
              },
              {
-               "podID": "122",
-               "plantID": 32,
-               "plantName": "Lettuce",
-               "plantedDate": "2016-04-26T18:09:16Z",
-               "harvestInDays": 30
-             },
-             {
-               "podID": "123",
+               "podID": "01-02-02",
                "plantID": 32,
                "plantName": "Lettuce",
                "plantedDate": "2016-04-26T18:09:16Z",
@@ -59,21 +45,14 @@
           "level": "3",
           "pods":  [
             {
-              "podID": "131",
+              "podID": "01-03-01",
               "plantID": 32,
               "plantName": "Mint",
               "plantedDate": "2016-04-26T18:09:16Z",
               "harvestInDays": 30
             },
             {
-              "podID": "132",
-              "plantID": 32,
-              "plantName": "Mint",
-              "plantedDate": "2016-04-26T18:09:16Z",
-              "harvestInDays": 30
-            },
-            {
-              "podID": "133",
+              "podID": "01-03-02",
               "plantID": 32,
               "plantName": "Mint",
               "plantedDate": "2016-04-26T18:09:16Z",
@@ -85,21 +64,14 @@
           "level": "4",
           "pods":  [
             {
-              "podID": "141",
+              "podID": "01-04-01",
               "plantID": 32,
               "plantName": "Basil",
               "plantedDate": "2016-04-26T18:09:16Z",
               "harvestInDays": 30
             },
             {
-              "podID": "142",
-              "plantID": 32,
-              "plantName": "Basil",
-              "plantedDate": "2016-04-26T18:09:16Z",
-              "harvestInDays": 30
-            },
-            {
-              "podID": "143",
+              "podID": "01-02-02",
               "plantID": 32,
               "plantName": "Basil",
               "plantedDate": "2016-04-26T18:09:16Z",
@@ -111,21 +83,14 @@
           "level": "5",
           "pods":  [
             {
-              "podID": "151",
+              "podID": "01-05-01",
               "plantID": 32,
               "plantName": "Basil",
               "plantedDate": "2016-04-26T18:09:16Z",
               "harvestInDays": 30
             },
             {
-              "podID": "152",
-              "plantID": 32,
-              "plantName": "Basil",
-              "plantedDate": "2016-04-26T18:09:16Z",
-              "harvestInDays": 30
-            },
-            {
-              "podID": "153",
+              "podID": "01-05-02",
               "plantID": 32,
               "plantName": "Basil",
               "plantedDate": "2016-04-26T18:09:16Z",
@@ -137,23 +102,16 @@
           "level": "6",
           "pods":  [
             {
-              "podID": "161",
+              "podID": "01-06-01",
               "plantID": 32,
-              "plantName": "Straberry",
+              "plantName": "Strawberry",
               "plantedDate": "2016-04-26T18:09:16Z",
               "harvestInDays": 30
             },
             {
-              "podID": "162",
+              "podID": "01-06-02",
               "plantID": 32,
-              "plantName": "Straberry",
-              "plantedDate": "2016-04-26T18:09:16Z",
-              "harvestInDays": 30
-            },
-            {
-              "podID": "163",
-              "plantID": 32,
-              "plantName": "Lettuce",
+              "plantName": "Strawberry",
               "plantedDate": "2016-04-26T18:09:16Z",
               "harvestInDays": 30
             }
@@ -163,23 +121,16 @@
           "level": "7",
           "pods":  [
             {
-              "podID": "171",
+              "podID": "01-07-01",
               "plantID": 32,
-              "plantName": "Straberry",
+              "plantName": "Strawberry",
               "plantedDate": "2016-04-26T18:09:16Z",
               "harvestInDays": 30
             },
             {
-              "podID": "172",
+              "podID": "01-07-02",
               "plantID": 32,
-              "plantName": "Straberry",
-              "plantedDate": "2016-04-26T18:09:16Z",
-              "harvestInDays": 30
-            },
-            {
-              "podID": "173",
-              "plantID": 32,
-              "plantName": "Lettuce",
+              "plantName": "Strawberry",
               "plantedDate": "2016-04-26T18:09:16Z",
               "harvestInDays": 30
             }
@@ -189,23 +140,16 @@
           "level": "8",
           "pods":  [
             {
-              "podID": "181",
+              "podID": "01-08-01",
               "plantID": 32,
-              "plantName": "Straberry",
+              "plantName": "Strawberry",
               "plantedDate": "2016-04-26T18:09:16Z",
               "harvestInDays": 30
             },
             {
-              "podID": "182",
+              "podID": "01-08-02",
               "plantID": 32,
-              "plantName": "Straberry",
-              "plantedDate": "2016-04-26T18:09:16Z",
-              "harvestInDays": 30
-            },
-            {
-              "podID": "183",
-              "plantID": 32,
-              "plantName": "Lettuce",
+              "plantName": "Strawberry",
               "plantedDate": "2016-04-26T18:09:16Z",
               "harvestInDays": 30
             }
@@ -215,23 +159,16 @@
           "level": "9",
           "pods":  [
             {
-              "podID": "191",
+              "podID": "01-09-01",
               "plantID": 32,
-              "plantName": "Straberry",
+              "plantName": "Strawberry",
               "plantedDate": "2016-04-26T18:09:16Z",
               "harvestInDays": 30
             },
             {
-              "podID": "192",
+              "podID": "01-09-02",
               "plantID": 32,
-              "plantName": "Straberry",
-              "plantedDate": "2016-04-26T18:09:16Z",
-              "harvestInDays": 30
-            },
-            {
-              "podID": "193",
-              "plantID": 32,
-              "plantName": "Lettuce",
+              "plantName": "Strawberry",
               "plantedDate": "2016-04-26T18:09:16Z",
               "harvestInDays": 30
             }
@@ -241,23 +178,16 @@
           "level": "10",
           "pods":  [
             {
-              "podID": "1101",
+              "podID": "01-10-01",
               "plantID": 32,
-              "plantName": "Straberry",
+              "plantName": "Strawberry",
               "plantedDate": "2016-04-26T18:09:16Z",
               "harvestInDays": 30
             },
             {
-              "podID": "1102",
+              "podID": "01-10-02",
               "plantID": 32,
-              "plantName": "Straberry",
-              "plantedDate": "2016-04-26T18:09:16Z",
-              "harvestInDays": 30
-            },
-            {
-              "podID": "1103",
-              "plantID": 32,
-              "plantName": "Lettuce",
+              "plantName": "Strawberry",
               "plantedDate": "2016-04-26T18:09:16Z",
               "harvestInDays": 30
             }
@@ -267,30 +197,23 @@
       ]
     },
 
-       {
+    {
       "name":"tower02",
       "levels":[
         {
           "level": "1",
           "pods":  [
             {
-              "podID": "111",
+              "podID": "02-01-01",
               "plantID": 32,
-              "plantName": "Straberry",
+              "plantName": "Strawberry",
               "plantedDate": "2016-04-26T18:09:16Z",
               "harvestInDays": 30
             },
             {
-              "podID": "112",
+              "podID": "02-01-02",
               "plantID": 32,
-              "plantName": "Straberry",
-              "plantedDate": "2016-04-26T18:09:16Z",
-              "harvestInDays": 30
-            },
-            {
-              "podID": "113",
-              "plantID": 32,
-              "plantName": "Lettuce",
+              "plantName": "Strawberry",
               "plantedDate": "2016-04-26T18:09:16Z",
               "harvestInDays": 30
             }
@@ -300,21 +223,14 @@
           "level": "2",
            "pods":  [
              {
-               "podID": "111",
+               "podID": "02-02-01",
                "plantID": 32,
-               "plantName": "Straberry",
+               "plantName": "Lettuce",
                "plantedDate": "2016-04-26T18:09:16Z",
                "harvestInDays": 30
              },
              {
-               "podID": "112",
-               "plantID": 32,
-               "plantName": "Straberry",
-               "plantedDate": "2016-04-26T18:09:16Z",
-               "harvestInDays": 30
-             },
-             {
-               "podID": "113",
+               "podID": "02-02-02",
                "plantID": 32,
                "plantName": "Lettuce",
                "plantedDate": "2016-04-26T18:09:16Z",
@@ -326,54 +242,174 @@
           "level": "3",
           "pods":  [
             {
-              "podID": "111",
+              "podID": "02-03-01",
               "plantID": 32,
-              "plantName": "Straberry",
+              "plantName": "Mint",
               "plantedDate": "2016-04-26T18:09:16Z",
               "harvestInDays": 30
             },
             {
-              "podID": "112",
+              "podID": "02-03-02",
               "plantID": 32,
-              "plantName": "Straberry",
+              "plantName": "Mint",
+              "plantedDate": "2016-04-26T18:09:16Z",
+              "harvestInDays": 30
+            }
+          ]
+        },
+        {
+          "level": "4",
+          "pods":  [
+            {
+              "podID": "02-04-01",
+              "plantID": 32,
+              "plantName": "Basil",
               "plantedDate": "2016-04-26T18:09:16Z",
               "harvestInDays": 30
             },
             {
-              "podID": "113",
+              "podID": "02-02-02",
               "plantID": 32,
-              "plantName": "Lettuce",
+              "plantName": "Basil",
+              "plantedDate": "2016-04-26T18:09:16Z",
+              "harvestInDays": 30
+            }
+          ]
+        },
+        {
+          "level": "5",
+          "pods":  [
+            {
+              "podID": "02-05-01",
+              "plantID": 32,
+              "plantName": "Basil",
+              "plantedDate": "2016-04-26T18:09:16Z",
+              "harvestInDays": 30
+            },
+            {
+              "podID": "02-05-02",
+              "plantID": 32,
+              "plantName": "Basil",
+              "plantedDate": "2016-04-26T18:09:16Z",
+              "harvestInDays": 30
+            }
+          ]
+        },
+        {
+          "level": "6",
+          "pods":  [
+            {
+              "podID": "02-06-01",
+              "plantID": 32,
+              "plantName": "Strawberry",
+              "plantedDate": "2016-04-26T18:09:16Z",
+              "harvestInDays": 30
+            },
+            {
+              "podID": "02-06-02",
+              "plantID": 32,
+              "plantName": "Strawberry",
+              "plantedDate": "2016-04-26T18:09:16Z",
+              "harvestInDays": 30
+            }
+          ]
+        },
+        {
+          "level": "7",
+          "pods":  [
+            {
+              "podID": "02-07-01",
+              "plantID": 32,
+              "plantName": "Strawberry",
+              "plantedDate": "2016-04-26T18:09:16Z",
+              "harvestInDays": 30
+            },
+            {
+              "podID": "02-07-02",
+              "plantID": 32,
+              "plantName": "Strawberry",
+              "plantedDate": "2016-04-26T18:09:16Z",
+              "harvestInDays": 30
+            }
+          ]
+        },
+        {
+          "level": "8",
+          "pods":  [
+            {
+              "podID": "02-08-01",
+              "plantID": 32,
+              "plantName": "Strawberry",
+              "plantedDate": "2016-04-26T18:09:16Z",
+              "harvestInDays": 30
+            },
+            {
+              "podID": "02-08-02",
+              "plantID": 32,
+              "plantName": "Strawberry",
+              "plantedDate": "2016-04-26T18:09:16Z",
+              "harvestInDays": 30
+            }
+          ]
+        },
+        {
+          "level": "9",
+          "pods":  [
+            {
+              "podID": "02-09-01",
+              "plantID": 32,
+              "plantName": "Strawberry",
+              "plantedDate": "2016-04-26T18:09:16Z",
+              "harvestInDays": 30
+            },
+            {
+              "podID": "02-09-02",
+              "plantID": 32,
+              "plantName": "Strawberry",
+              "plantedDate": "2016-04-26T18:09:16Z",
+              "harvestInDays": 30
+            }
+          ]
+        },
+        {
+          "level": "10",
+          "pods":  [
+            {
+              "podID": "02-10-01",
+              "plantID": 32,
+              "plantName": "Strawberry",
+              "plantedDate": "2016-04-26T18:09:16Z",
+              "harvestInDays": 30
+            },
+            {
+              "podID": "02-10-02",
+              "plantID": 32,
+              "plantName": "Strawberry",
               "plantedDate": "2016-04-26T18:09:16Z",
               "harvestInDays": 30
             }
           ]
         }
+
       ]
     },
-      {
+    {
       "name":"tower03",
       "levels":[
         {
           "level": "1",
           "pods":  [
             {
-              "podID": "111",
+              "podID": "03-01-01",
               "plantID": 32,
-              "plantName": "Straberry",
+              "plantName": "Strawberry",
               "plantedDate": "2016-04-26T18:09:16Z",
               "harvestInDays": 30
             },
             {
-              "podID": "112",
+              "podID": "03-01-02",
               "plantID": 32,
-              "plantName": "Straberry",
-              "plantedDate": "2016-04-26T18:09:16Z",
-              "harvestInDays": 30
-            },
-            {
-              "podID": "113",
-              "plantID": 32,
-              "plantName": "Lettuce",
+              "plantName": "Strawberry",
               "plantedDate": "2016-04-26T18:09:16Z",
               "harvestInDays": 30
             }
@@ -383,21 +419,14 @@
           "level": "2",
            "pods":  [
              {
-               "podID": "111",
+               "podID": "03-02-01",
                "plantID": 32,
-               "plantName": "Straberry",
+               "plantName": "Lettuce",
                "plantedDate": "2016-04-26T18:09:16Z",
                "harvestInDays": 30
              },
              {
-               "podID": "112",
-               "plantID": 32,
-               "plantName": "Straberry",
-               "plantedDate": "2016-04-26T18:09:16Z",
-               "harvestInDays": 30
-             },
-             {
-               "podID": "113",
+               "podID": "03-02-02",
                "plantID": 32,
                "plantName": "Lettuce",
                "plantedDate": "2016-04-26T18:09:16Z",
@@ -409,28 +438,155 @@
           "level": "3",
           "pods":  [
             {
-              "podID": "111",
+              "podID": "03-03-01",
               "plantID": 32,
-              "plantName": "Straberry",
+              "plantName": "Mint",
               "plantedDate": "2016-04-26T18:09:16Z",
               "harvestInDays": 30
             },
             {
-              "podID": "112",
+              "podID": "03-03-02",
               "plantID": 32,
-              "plantName": "Straberry",
+              "plantName": "Mint",
+              "plantedDate": "2016-04-26T18:09:16Z",
+              "harvestInDays": 30
+            }
+          ]
+        },
+        {
+          "level": "4",
+          "pods":  [
+            {
+              "podID": "03-04-01",
+              "plantID": 32,
+              "plantName": "Basil",
               "plantedDate": "2016-04-26T18:09:16Z",
               "harvestInDays": 30
             },
             {
-              "podID": "113",
+              "podID": "03-02-02",
               "plantID": 32,
-              "plantName": "Lettuce",
+              "plantName": "Basil",
+              "plantedDate": "2016-04-26T18:09:16Z",
+              "harvestInDays": 30
+            }
+          ]
+        },
+        {
+          "level": "5",
+          "pods":  [
+            {
+              "podID": "03-05-01",
+              "plantID": 32,
+              "plantName": "Basil",
+              "plantedDate": "2016-04-26T18:09:16Z",
+              "harvestInDays": 30
+            },
+            {
+              "podID": "03-05-02",
+              "plantID": 32,
+              "plantName": "Basil",
+              "plantedDate": "2016-04-26T18:09:16Z",
+              "harvestInDays": 30
+            }
+          ]
+        },
+        {
+          "level": "6",
+          "pods":  [
+            {
+              "podID": "03-06-01",
+              "plantID": 32,
+              "plantName": "Strawberry",
+              "plantedDate": "2016-04-26T18:09:16Z",
+              "harvestInDays": 30
+            },
+            {
+              "podID": "03-06-02",
+              "plantID": 32,
+              "plantName": "Strawberry",
+              "plantedDate": "2016-04-26T18:09:16Z",
+              "harvestInDays": 30
+            }
+          ]
+        },
+        {
+          "level": "7",
+          "pods":  [
+            {
+              "podID": "03-07-01",
+              "plantID": 32,
+              "plantName": "Strawberry",
+              "plantedDate": "2016-04-26T18:09:16Z",
+              "harvestInDays": 30
+            },
+            {
+              "podID": "03-07-02",
+              "plantID": 32,
+              "plantName": "Strawberry",
+              "plantedDate": "2016-04-26T18:09:16Z",
+              "harvestInDays": 30
+            }
+          ]
+        },
+        {
+          "level": "8",
+          "pods":  [
+            {
+              "podID": "03-08-01",
+              "plantID": 32,
+              "plantName": "Strawberry",
+              "plantedDate": "2016-04-26T18:09:16Z",
+              "harvestInDays": 30
+            },
+            {
+              "podID": "03-08-02",
+              "plantID": 32,
+              "plantName": "Strawberry",
+              "plantedDate": "2016-04-26T18:09:16Z",
+              "harvestInDays": 30
+            }
+          ]
+        },
+        {
+          "level": "9",
+          "pods":  [
+            {
+              "podID": "03-09-01",
+              "plantID": 32,
+              "plantName": "Strawberry",
+              "plantedDate": "2016-04-26T18:09:16Z",
+              "harvestInDays": 30
+            },
+            {
+              "podID": "03-09-02",
+              "plantID": 32,
+              "plantName": "Strawberry",
+              "plantedDate": "2016-04-26T18:09:16Z",
+              "harvestInDays": 30
+            }
+          ]
+        },
+        {
+          "level": "10",
+          "pods":  [
+            {
+              "podID": "03-10-01",
+              "plantID": 32,
+              "plantName": "Strawberry",
+              "plantedDate": "2016-04-26T18:09:16Z",
+              "harvestInDays": 30
+            },
+            {
+              "podID": "03-10-02",
+              "plantID": 32,
+              "plantName": "Strawberry",
               "plantedDate": "2016-04-26T18:09:16Z",
               "harvestInDays": 30
             }
           ]
         }
+
       ]
     }
 

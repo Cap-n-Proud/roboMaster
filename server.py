@@ -80,6 +80,7 @@ def status():
         async_mode=socketio.async_mode,
         progr=getProg(),
         currentProg=getCurrentProgr(),
+        dataJSON=dataJSON,
     )
 
 
@@ -195,6 +196,7 @@ def handle_data(data):
 
         if dataJSON["type"] == "T":
             print(dataJSON)
+            socketio.emit("telemetry", data)
 
     except ValueError as e:
         app.logger.warning("Received non-JSON from Arduino: " + str(data))
