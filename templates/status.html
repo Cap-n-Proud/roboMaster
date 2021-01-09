@@ -37,18 +37,6 @@
   <!-- https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_display_element_hover -->
 
   <body>
-    <table id="trees">
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-    </table>
     <div id="T"> </div>
     <div id="myData"></div>
     <script>
@@ -189,8 +177,8 @@
               x.setAttribute("id", data.towers[t].name);
               document.body.appendChild(x);
               // Access the levels
-              for (var l = 0; l < data.towers[t].levels.length; l++) {
-                var table = document.getElementById( data.towers[t].name);
+              for (var l = data.towers[t].levels.length - 1; l >= 0; l--) {
+                var table = document.getElementById(data.towers[t].name);
                 var row = table.insertRow();
 
 
@@ -223,7 +211,7 @@
 
           })
       }
-    
+
       var socket = io();
 
 

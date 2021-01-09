@@ -225,3 +225,6 @@ json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes:
 2021-01-09 02:32:01,915 WARNING server Thread-1 : Received non-JSON from Arduino: b' 0 0","brightness":0}\r\n'
 2021-01-09 02:33:44,378 WARNING server Thread-1 : Received non-JSON from Arduino: b'":"T","pumpON":0,"RGB":"0 0 0","brightness":0}\r\n'
 2021-01-09 02:33:44,380 WARNING server Thread-1 : Received non-JSON from Arduino: b'0","brightness":0}\r\n'
+2021-01-09 02:49:11,542 WARNING server Thread-1 : Received non-JSON from Arduino: b'B":"0 0 0","brightness":0}\r\n'
+2021-01-09 02:49:11,553 WARNING server Thread-1 : Received non-JSON from Arduino: b'{"type":"T","pumpON":0,"RGB":"0\xf0"pumpON":0,"RGB":"0 0 0","brightness":0}\r\n'
+2021-01-09 02:49:11,559 WARNING server Thread-1 : Received non-JSON from Arduino: b'{"type":"T","pumpON":0,"RGB":"0\xf0{"type":"T","pumpON":0,"RGB":"0 0 0","brightness":0}\r\n'
