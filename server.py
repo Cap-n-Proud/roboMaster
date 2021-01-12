@@ -196,7 +196,7 @@ def handle_data(data):
 
         if dataJSON["type"] == "T":
             print(dataJSON)
-            socketio.emit("telemetry", data)
+            socketio.emit("telemetry", dataJSON)
 
     except ValueError as e:
         app.logger.warning("Received non-JSON from Arduino: " + str(data))

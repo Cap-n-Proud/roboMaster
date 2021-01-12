@@ -266,3 +266,162 @@ json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes:
 2021-01-09 23:35:51,624 WARNING server Thread-1 : Received non-JSON from Arduino: b'"brightness":0}\r\n'
 2021-01-09 23:35:51,625 WARNING server Thread-1 : Received non-JSON from Arduino: b'0","brightness":0}\r\n'
 2021-01-09 23:41:53,817 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 100 200 
+2021-01-12 22:19:12,331 WARNING server Thread-1 : Received non-JSON from Arduino: b':0,"RGB":"0 0 0","brightness":0}\r\n'
+2021-01-12 22:19:12,332 WARNING server Thread-1 : Received non-JSON from Arduino: b'0","brightness":0}\r\n'
+2021-01-12 22:19:13,447 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-12 22:19:13,947 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 100 200 
+2021-01-12 22:19:14,337 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-12 22:23:55,861 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-12 22:23:56,364 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 100 200 
+2021-01-12 22:23:56,746 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-12 22:24:09,496 WARNING server Thread-1 : Received non-JSON from Arduino: b'"brightness":80}\r\n'
+2021-01-12 22:24:09,496 WARNING server Thread-1 : Received non-JSON from Arduino: b':80}\r\n'
+2021-01-12 22:24:10,614 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-12 22:24:11,114 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 100 200 
+2021-01-12 22:24:11,502 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-12 22:35:34,366 WARNING server Thread-1 : Received non-JSON from Arduino: b'"200 100 200","brightness":80}\r\n'
+2021-01-12 22:35:35,480 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-12 22:35:35,980 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 100 200 
+2021-01-12 22:35:36,370 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-12 22:36:44,446 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-12 22:36:44,948 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 100 200 
+2021-01-12 22:36:45,338 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-12 22:39:39,932 WARNING server Thread-1 : Received non-JSON from Arduino: b'","pumpON":0,"RGB":"200 100 200","brightness":80}\r\n'
+2021-01-12 22:39:41,051 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-12 22:39:41,555 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 100 200 
+2021-01-12 22:39:41,942 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-12 22:41:01,628 WARNING server Thread-1 : Received non-JSON from Arduino: b'B":"200 100 200","brightness":80}\r\n'
+2021-01-12 22:41:01,628 WARNING server Thread-1 : Received non-JSON from Arduino: b':80}\r\n'
+2021-01-12 22:41:02,746 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-12 22:41:03,250 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 100 200 
+2021-01-12 22:41:03,632 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-12 22:41:35,911 ERROR engineio.server Thread-107 : Invalid session RTkz9PrGoZv62eSOAAAA (further occurrences of this error will be logged with level INFO)
+2021-01-12 22:41:35,920 ERROR werkzeug Thread-106 : Error on request:
+Traceback (most recent call last):
+  File "/home/paolo/VEnv/roboGarden/lib/python3.8/site-packages/werkzeug/serving.py", line 323, in run_wsgi
+    execute(self.server.app)
+  File "/home/paolo/VEnv/roboGarden/lib/python3.8/site-packages/werkzeug/serving.py", line 312, in execute
+    application_iter = app(environ, start_response)
+  File "/home/paolo/VEnv/roboGarden/lib/python3.8/site-packages/flask/app.py", line 2464, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/paolo/VEnv/roboGarden/lib/python3.8/site-packages/flask_socketio/__init__.py", line 45, in __call__
+    return super(_SocketIOMiddleware, self).__call__(environ,
+  File "/home/paolo/VEnv/roboGarden/lib/python3.8/site-packages/engineio/middleware.py", line 60, in __call__
+    return self.engineio_app.handle_request(environ, start_response)
+  File "/home/paolo/VEnv/roboGarden/lib/python3.8/site-packages/socketio/server.py", line 571, in handle_request
+    return self.eio.handle_request(environ, start_response)
+  File "/home/paolo/VEnv/roboGarden/lib/python3.8/site-packages/engineio/server.py", line 409, in handle_request
+    socket = self._get_socket(sid)
+  File "/home/paolo/VEnv/roboGarden/lib/python3.8/site-packages/engineio/server.py", line 611, in _get_socket
+    raise KeyError('Session is disconnected')
+KeyError: 'Session is disconnected'
+2021-01-12 22:45:45,946 ERROR werkzeug Thread-915 : Error on request:
+Traceback (most recent call last):
+  File "/home/paolo/VEnv/roboGarden/lib/python3.8/site-packages/werkzeug/serving.py", line 323, in run_wsgi
+    execute(self.server.app)
+  File "/home/paolo/VEnv/roboGarden/lib/python3.8/site-packages/werkzeug/serving.py", line 312, in execute
+    application_iter = app(environ, start_response)
+  File "/home/paolo/VEnv/roboGarden/lib/python3.8/site-packages/flask/app.py", line 2464, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/paolo/VEnv/roboGarden/lib/python3.8/site-packages/flask_socketio/__init__.py", line 45, in __call__
+    return super(_SocketIOMiddleware, self).__call__(environ,
+  File "/home/paolo/VEnv/roboGarden/lib/python3.8/site-packages/engineio/middleware.py", line 60, in __call__
+    return self.engineio_app.handle_request(environ, start_response)
+  File "/home/paolo/VEnv/roboGarden/lib/python3.8/site-packages/socketio/server.py", line 571, in handle_request
+    return self.eio.handle_request(environ, start_response)
+  File "/home/paolo/VEnv/roboGarden/lib/python3.8/site-packages/engineio/server.py", line 409, in handle_request
+    socket = self._get_socket(sid)
+  File "/home/paolo/VEnv/roboGarden/lib/python3.8/site-packages/engineio/server.py", line 611, in _get_socket
+    raise KeyError('Session is disconnected')
+KeyError: 'Session is disconnected'
+2021-01-12 22:46:25,760 WARNING server Thread-1 : Received non-JSON from Arduino: b'00 200","brightness":80}\r\n'
+2021-01-12 22:46:26,883 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-12 22:46:27,386 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 100 200 
+2021-01-12 22:46:27,766 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-12 22:53:28,598 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-12 22:53:29,098 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 100 200 
+2021-01-12 22:53:29,483 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-12 22:56:33,987 WARNING server Thread-1 : Received non-JSON from Arduino: b'ON":0,"RGB":"200 100 200","brightness":80}\r\n'
+2021-01-12 22:56:35,108 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-12 22:56:35,608 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 100 200 
+2021-01-12 22:56:35,993 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-12 22:57:21,516 WARNING server Thread-1 : Received non-JSON from Arduino: b',"RGB":"200 100 200","brightness":80}\r\n'
+2021-01-12 22:57:22,636 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-12 22:57:23,139 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 100 200 
+2021-01-12 22:57:23,523 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-12 23:01:00,630 INFO server Thread-1 : Info from Arduino: Brightness set to: 0%
+2021-01-12 23:01:01,021 INFO server Thread-1109 : Lights OFF, RGB also set
+2021-01-12 23:01:46,178 WARNING server Thread-1 : Received non-JSON from Arduino: b'T","pumpON":0,"RGB":"200 100 200","brightness":0}\r\n'
+2021-01-12 23:02:24,212 ERROR engineio.server Thread-145 : Invalid session HZnLGxryGRklGcgrAAAC (further occurrences of this error will be logged with level INFO)
+2021-01-12 23:09:47,018 WARNING server Thread-1 : Received non-JSON from Arduino: b'type":"T","pumpON":0,"RGB":"0 0 0","brightness":0}\r\n'
+2021-01-12 23:09:47,019 WARNING server Thread-1 : Received non-JSON from Arduino: b'{\xe2{"type":"T","pumpON":0,"RGB":"0 0 0","brightness":0}\r\n'
+2021-01-12 23:11:17,550 WARNING server Thread-1 : Received non-JSON from Arduino: b'","brightness":0}\r\n'
+2021-01-12 23:11:17,553 WARNING server Thread-1 : Received non-JSON from Arduino: b'0","brightness":0}\r\n'
+2021-01-12 23:29:41,986 WARNING server Thread-1 : Received non-JSON from Arduino: b',"brightness":0}\r\n'
+2021-01-12 23:29:42,000 WARNING server Thread-1 : Received non-JSON from Arduino: b'0","brightness":0}\r\n'
+2021-01-12 23:30:56,450 WARNING server Thread-1 : Received non-JSON from Arduino: b'"RGB":"0 0 0","brightness":0}\r\n'
+2021-01-12 23:39:54,759 WARNING server Thread-1 : Received non-JSON from Arduino: b'pe":"T","pumpON":0,"RGB":"0 0 0","brightness":0}\r\n'
+2021-01-12 23:40:24,838 WARNING server Thread-1 : Received non-JSON from Arduino: b'0,"RGB":"0 0 0","brightness":0}\r\n'
+2021-01-13 00:01:31,786 ERROR engineio.server Thread-15 : post request handler error
+Traceback (most recent call last):
+  File "/home/paolo/VEnv/roboGarden/lib/python3.8/site-packages/engineio/server.py", line 411, in handle_request
+    socket.handle_post_request(environ)
+  File "/home/paolo/VEnv/roboGarden/lib/python3.8/site-packages/engineio/socket.py", line 124, in handle_post_request
+    p = payload.Payload(encoded_payload=body)
+  File "/home/paolo/VEnv/roboGarden/lib/python3.8/site-packages/engineio/payload.py", line 13, in __init__
+    self.decode(encoded_payload)
+  File "/home/paolo/VEnv/roboGarden/lib/python3.8/site-packages/engineio/payload.py", line 44, in decode
+    raise ValueError('Too many packets in payload')
+ValueError: Too many packets in payload
+2021-01-13 00:03:12,545 WARNING server Thread-1 : Received non-JSON from Arduino: b'"brightness":0}\r\n'
+2021-01-13 00:03:12,546 WARNING server Thread-1 : Received non-JSON from Arduino: b'0","brightness":0}\r\n'
+2021-01-13 00:03:13,662 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-13 00:03:14,164 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 100 200 
+2021-01-13 00:03:14,552 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-13 00:03:54,693 WARNING server Thread-1 : Received non-JSON from Arduino: b'0 200","brightness":80}\r\n'
+2021-01-13 00:03:55,815 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-13 00:03:56,314 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 0 0 
+2021-01-13 00:03:56,697 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-13 00:06:41,306 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-13 00:06:41,808 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 0 0 
+2021-01-13 00:06:42,198 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-13 00:08:49,356 WARNING server Thread-1 : Received non-JSON from Arduino: b'N":0,"RGB":"200 0 0","brightness":80}\r\n'
+2021-01-13 00:08:50,478 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-13 00:08:50,978 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 0 0 
+2021-01-13 00:08:51,361 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-13 00:10:21,945 WARNING server Thread-1 : Received non-JSON from Arduino: b'pe":"T","pumpON":0,"RGB":"200 0 0","brightness":80}\r\n'
+2021-01-13 00:10:23,060 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-13 00:10:23,559 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 0 0 
+2021-01-13 00:10:23,949 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-13 00:11:16,643 WARNING server Thread-1 : Received non-JSON from Arduino: b'0 0","brightness":80}\r\n'
+2021-01-13 00:11:17,762 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-13 00:11:18,262 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 0 0 
+2021-01-13 00:11:18,654 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-13 00:15:21,122 WARNING server Thread-1 : Received non-JSON from Arduino: b'0","brightness":80}\r\n'
+2021-01-13 00:15:22,245 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-13 00:15:22,748 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 0 0 
+2021-01-13 00:15:23,128 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-13 00:15:59,013 WARNING server Thread-1 : Received non-JSON from Arduino: b' 0 0","brightness":80}\r\n'
+2021-01-13 00:16:00,126 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-13 00:16:00,630 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 0 0 
+2021-01-13 00:16:01,018 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-13 00:17:12,027 WARNING server Thread-1 : Received non-JSON from Arduino: b'ightness":80}\r\n'
+2021-01-13 00:17:12,028 WARNING server Thread-1 : Received non-JSON from Arduino: b'ghtness":80}\r\n'
+2021-01-13 00:17:13,146 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-13 00:17:13,650 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 0 0 
+2021-01-13 00:17:14,033 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-13 00:18:13,317 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-13 00:18:13,817 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 0 0 
+2021-01-13 00:18:14,208 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-13 00:18:40,012 WARNING server Thread-1 : Received non-JSON from Arduino: b'mpON":0,"RGB":"200 0 0","brightness":80}\r\n'
+2021-01-13 00:18:41,125 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-13 00:18:41,628 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 0 0 
+2021-01-13 00:18:42,017 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-13 00:22:48,350 WARNING server Thread-1 : Received non-JSON from Arduino: b'umpON":0,"RGB":"200 0 0","brightness":80}\r\n'
+2021-01-13 00:22:48,352 WARNING server Thread-1 : Received non-JSON from Arduino: b'ghtness":80}\r\n'
+2021-01-13 00:22:49,468 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-13 00:22:49,968 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 0 0 
+2021-01-13 00:22:50,359 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-13 00:23:26,858 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-13 00:23:27,359 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 0 0 
+2021-01-13 00:23:27,748 INFO server Thread-2 : Lights ON, RGB also set

@@ -1,6 +1,7 @@
-$fn = 200;
+$fn = 299;
 towerDiam = 75;
 towerThickness = 2;
+towerID = towerDiam - 2* towerThickness;
 towerHeight = 1000;
 podHeight = 3;
 podDiam = 38.5;
@@ -22,10 +23,13 @@ pipeDiamIN = 8;
 
 T = 1;
 
+
+sprinkleRingThickness = 2;
 sprinklerHolesAngle = 30;
 sprinklePlateHeight = 3;
-sprinlerAngle=10;
-sprinklerDiam=towerDiam - 2* towerThickness + 1;
+sprinlkerAngle=10;
+sprinklerDiam=towerID-2;
+sprinklerHoleDiam = 5;
 
 numberofPods = towerHeight / (podDiam + distanceBetweenLevels);
 dbpc = 2 * distanceBetweenLevels + 2 * podDiam;
@@ -166,7 +170,8 @@ module arc(height, depth, radius, degrees) {
 }
 
 module SUB_sprinklerInflow() {
-  //Inflow attachment
+  sprinklerTubeThick = 3;
+    //Inflow attachment
   translate([0,0,-15])difference() {
     union() {
       cylinder(h = 20, d1 = (pipeDiamIN), d2 = (pipeDiamIN));
@@ -179,7 +184,7 @@ module SUB_sprinklerInflow() {
         }
       }
     }
-    translate([0, 0, -10]) rotate([0, 0, 0]) cylinder(h = 40, d1 = (pipeDiamIN - 2 * T), d2 = (pipeDiamIN - 2 * T));
+    translate([0, 0, -10]) rotate([0, 0, 0]) cylinder(h = 40, d1 = (pipeDiamIN - sprinklerTubeThick), d2 = (pipeDiamIN - sprinklerTubeThick));
     
      }
 }
@@ -189,7 +194,7 @@ module SUB_cutSprinklerTop(){
     
      //Remove excess material on the inflow.
 cutHeight = 100;
-   rotate([0, -sprinlerAngle, 0])translate([0, 0, cutHeight/2+sprinklePlateHeight]) cube([2*towerDiam, 2*towerDiam, cutHeight], center = true);
+   rotate([0, -sprinlkerAngle, 0])translate([0, 0, cutHeight/2+sprinklePlateHeight]) cube([2*towerDiam, 2*towerDiam, cutHeight], center = true);
 
 }
   
@@ -207,19 +212,28 @@ module SUB_cutSprinklerSide() {
 
     
 module SUB_sprinklerRing() {
-
   //Builds the external ring
-  translate([0,0,-10])difference() {
-    cylinder(h = 30, d1 = (sprinklerDiam), d2 = (sprinklerDiam));
-    translate([0,0,-5])cylinder(h = 30, d1 = (towerDiam - 2 * towerThickness), d2 = (towerDiam - 2 * towerThickness));
+  translate([0,0,-25])difference() {
+    cylinder(h = 40, d1 = (sprinklerDiam), d2 = (sprinklerDiam));
+    translate([0,0,-5])cylinder(h = 40, d1 = (sprinklerDiam-sprinkleRingThickness), d2 = (sprinklerDiam-sprinkleRingThickness));
+
+  }}
+  
+  module SprinklerShelve() {
+  //Builds the external ring
+  translate([0,0,-25])difference() {
+    cylinder(h = 15, d1 = (sprinklerDiam+1), d2 = (sprinklerDiam+1));
+    translate([0,0,0])cylinder(h = 15, d1 = (sprinklerDiam-2*sprinkleRingThickness), d2 = (sprinklerDiam-2*sprinkleRingThickness));
 
   }
+  
+
 
 }
 
 module SUB_sprinklerPlate() {
   translate([0,0,0])difference() {
-    rotate([0, -sprinlerAngle, 0]) cylinder(h = sprinklePlateHeight , d1 = (sprinklerDiam), d2 = (sprinklerDiam));
+    rotate([0, -sprinlkerAngle, 0]) cylinder(h = sprinklePlateHeight , d1 = (sprinklerDiam+2*cos(sprinlkerAngle)), d2 = (sprinklerDiam+2*cos(sprinlkerAngle)));
    translate([0,0,-10])cylinder(h = 60, d1 = (pipeDiamIN - T), d2 = (pipeDiamIN - T));
     SUB_sprinklerHoles();
     rotate([0, 0, 160])arc(10, 20, 30, 130);
@@ -229,22 +243,21 @@ module SUB_sprinklerPlate() {
 }
 
 module SUB_sprinklerHoles() {
-  holeDiam = 3;
 
   n = 20; // number of holes
   step = 360 / n;
 
   rotate([sprinklerHolesAngle, 0, 160-45])translate([0,-5,-30]) {
-    for (j = [3 : 1]) {
+    for (j = [3 : 2]) {
 
       for (i = [0 : step: 160]) {
         //translate([r*cos(i),r*sin(i),0])
-        //rotate([0,15,0])cylinder(h= 30, d1= holeDiam, d2=holeDiam); 
-        r = j / 10 * (sprinklerDiam) + 10;
+        //rotate([0,15,0])cylinder(h= 30, d1= sprinklerHoleDiam, d2=sprinklerHoleDiam); 
+        r = j / 10 * (sprinklerDiam) + 8;
         angle = i;
         dx = r * cos(angle);
         dy = r * sin(angle);
-        translate([dx, dy, 0]) rotate([0, 0, 0]) cylinder(h = 50, d1 = holeDiam, d2 = holeDiam);
+        translate([dx, dy, 0]) rotate([0, 0, 0]) cylinder(h = 50, d1 = sprinklerHoleDiam, d2 = sprinklerHoleDiam);
 
       }
     }
@@ -262,5 +275,5 @@ module sprinkler() {
     SUB_cutSprinklerSide();
     
 }}
-
-sprinkler();
+//SprinklerShelve();
+    sprinkler();

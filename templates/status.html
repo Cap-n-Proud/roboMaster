@@ -12,7 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/clocklet@0.3.0"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js" integrity="sha512-aMGMvNYu8Ue4G+fHa359jcPb1u+ytAF+P2SCb+PxrjCdO3n3ZTxJ30zuH39rimUggmTwmh2u7wvQsDTHESnmfQ==" crossorigin="anonymous"></script>
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script>
       /* `window.clocklet` object is available */
     </script>
@@ -39,6 +39,12 @@
   <body>
     <div id="T"> </div>
     <div id="infoBox"></div>
+    <!-- <i id="LED" class="material-icons">lightbulb-outline</i> -->
+    <i id="LED" class="material-icons" style="background: rgba(200,0 0,80)">lightbulb-outline</i>
+    <i id="LED2" class="material-icons" style="background: rgba(76, 175, 80, 0.3)">lightbulb-outline</i>
+    <!-- lightbulb-outline
+    lightbulb-on-outline
+  https://material.io/resources/icons/?style=round-->
     <script>
       //Calls functions to load defaults and info.
       document.addEventListener("DOMContentLoaded", function() {
@@ -47,22 +53,10 @@
         getStatus();
       });
 
-      //Get the button
-      var mybutton = document.getElementById("myBtn");
-      mybutton.style.display = "block";
-
       // When the user scrolls down 20px from the top of the document, show the button
       window.onscroll = function() {
         scrollFunction()
       };
-
-      function scrollFunction() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-          mybutton.style.display = "block";
-        } else {
-          mybutton.style.display = "none";
-        }
-      }
 
       // When the user clicks on the button, scroll to the top of the document
       function topFunction() {
@@ -209,6 +203,7 @@
       }
 
       var socket = io();
+
       $(document).ready(function() {
         // Connect to the Socket.IO server.
         // The connection URL has the following format, relative to the current page:
@@ -218,7 +213,7 @@
         // The callback function is invoked when a connection with the
         // server is established.
         socket.on('connect', function() {
-          socket.emit('my_event', {
+          socket.emit('statusConnected', {
             data: 'I\'m connected!'
           });
           console.log("connected!")
@@ -229,8 +224,13 @@
         // to the client. The data is then displayed in the "Received"
         // section of the page.
         socket.on('telemetry', function(msg, cb) {
-          document.getElementById("T").innerHTML = msg
-          console.log("received!")
+          document.getElementById("T").innerHTML = msg['type']
+          // https://stackoverflow.com/questions/9053016/replace-spaces-with-commas-with-javascript
+          var cmd = "background: rgba(" + msg['RGB'].split(/[ ,]+/).join(',') + "," + msg['brightness'] / 10 + ")"
+          document.getElementById("LED").setAttribute("style", cmd)
+          document.getElementById("T").setAttribute("style", cmd)
+          //background: rgba(255, 175, 80, 0.8)
+          //console.log(new Uint8Array(msg))
           if (cb)
             cb();
         });
