@@ -13,6 +13,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js" integrity="sha512-aMGMvNYu8Ue4G+fHa359jcPb1u+ytAF+P2SCb+PxrjCdO3n3ZTxJ30zuH39rimUggmTwmh2u7wvQsDTHESnmfQ==" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
     <script>
       /* `window.clocklet` object is available */
     </script>
@@ -37,11 +39,25 @@
   <!-- https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_display_element_hover -->
 
   <body>
-    <div id="T"> </div>
-    <div id="infoBox"></div>
+    <table>
+      <tr>
+        <td>
+          <i id="LED" class="material-icons" style="background: rgba(0,0 0,0)">lightbulb-outline</i>
+        </td>
+        <td></td>
+        <td><i id="pump" class="material-icons">swap_vert</i></td>
+      </tr>
+      <tr>
+        <td id="LED-text"></td>
+        <td></td>
+        <td id="pump-text"></td>
+      </tr>
+      <tr>
+        <td id="infoBox" colspan="3"></td>
+
+      </tr>
+    </table><br>
     <!-- <i id="LED" class="material-icons">lightbulb-outline</i> -->
-    <i id="LED" class="material-icons" style="background: rgba(200,0 0,80)">lightbulb-outline</i>
-    <i id="LED2" class="material-icons" style="background: rgba(76, 175, 80, 0.3)">lightbulb-outline</i>
     <!-- lightbulb-outline
     lightbulb-on-outline
   https://material.io/resources/icons/?style=round-->
@@ -224,11 +240,28 @@
         // to the client. The data is then displayed in the "Received"
         // section of the page.
         socket.on('telemetry', function(msg, cb) {
-          document.getElementById("T").innerHTML = msg['type']
           // https://stackoverflow.com/questions/9053016/replace-spaces-with-commas-with-javascript
-          var cmd = "background: rgba(" + msg['RGB'].split(/[ ,]+/).join(',') + "," + msg['brightness'] / 10 + ")"
+          var cmd = ""
+          document.getElementById("pump-text").innerHTML = msg['pumpON']
+
+          if (msg['Brightness'] == 0) {
+            cmd = "background: rgba(190, 190, 190, 1)"
+            document.getElementById("LED").innerHTML = "lightbulb-outline"
+          } else {
+            cmd = "background: rgba(" + msg['RGB'].split(/[ ,]+/).join(',') + "," + msg['brightness'] / 10 + ")"
+            document.getElementById("LED").innerHTML = "lightbulb-on-outline"
+          }
           document.getElementById("LED").setAttribute("style", cmd)
-          document.getElementById("T").setAttribute("style", cmd)
+
+          if (msg['pumpON'] == 0) {
+            cmd = "background: rgba(190, 190, 190, 0.5)"
+            document.getElementById("pump").setAttribute("style", cmd)
+          } else {
+            cmd = "background: rgba(0, 0, 0, 0)"
+            document.getElementById("pump").setAttribute("style", cmd)
+          }
+          document.getElementById("LED-text").innerHTML = msg['RGB'] + ' ' + msg['brightness']
+
           //background: rgba(255, 175, 80, 0.8)
           //console.log(new Uint8Array(msg))
           if (cb)

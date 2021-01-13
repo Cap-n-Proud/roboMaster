@@ -1,4 +1,4 @@
-$fn = 299;
+$fn = 200;
 towerDiam = 75;
 towerThickness = 2;
 towerID = towerDiam - 2* towerThickness;
@@ -8,6 +8,8 @@ podDiam = 38.5;
 podThickness = 2;
 podAngle = 90;
 distanceBetweenLevels = 50;
+minDistanceFromTowerBase = 30;
+hollowPods =true;
 
 baseX = 800;
 baseY = 550;
@@ -28,7 +30,7 @@ sprinkleRingThickness = 2;
 sprinklerHolesAngle = 30;
 sprinklePlateHeight = 3;
 sprinlkerAngle=10;
-sprinklerDiam=towerID-2;
+sprinklerDiam=towerID;
 sprinklerHoleDiam = 5;
 
 numberofPods = towerHeight / (podDiam + distanceBetweenLevels);
@@ -55,23 +57,30 @@ module t() {
 
 }
 
-module pod() {
-
-  //difference(){
+module pod(hollowPods) {
+if (hollowPods==true){
+  difference(){
   translate([podHeight, 0, podDiam]) rotate([ - 0, 90, -90]) rotate_extrude(angle = 75, convexity = 10)
   translate([38.5, 0]) circle(d = podDiam);
   rotate([0, 90, 0]) cylinder(h = podHeight, d1 = podDiam, d2 = podDiam);
 
-  // translate([podHeight,0,podDiam])rotate([-0,90,-90])rotate_extrude(angle=75,convexity = 10)
-  //translate([38.5, 0])circle(d=podDiam-2);
+
+      translate([podHeight,0,podDiam])rotate([-0,90,-90])rotate_extrude(angle=75,convexity = 10)
+  translate([38.5, 0])circle(d=podDiam-2);
   rotate([0, 90, 0]) cylinder(h = podHeight, d1 = podDiam - 2, d2 = podDiam - 2);
-  //}
+  }
+}else{
+      translate([podHeight, 0, podDiam]) rotate([ - 0, 90, -90]) rotate_extrude(angle = 75, convexity = 10)
+  translate([38.5, 0]) circle(d = podDiam);
+  rotate([0, 90, 0]) cylinder(h = podHeight, d1 = podDiam, d2 = podDiam);
+    
+    }
 }
 
 module level(angle) {
   rotate_about_pt(angle, 0, [0, 0, 0]) {
-    rotate_about_pt(podAngle, 0, [0, 0, 0]) translate([towerDiam / 2 - podHeight / 2, 0, podDiam / 2 + distanceBetweenLevels]) pod();
-    rotate_about_pt(0, 0, [0, 0, 0]) translate([towerDiam / 2 - podHeight / 2, 0, podDiam / 2 + distanceBetweenLevels]) pod();
+    rotate_about_pt(podAngle, 0, [0, 0, 0]) translate([towerDiam / 2 - podHeight / 2, 0, podDiam / 2 ]) pod(hollowPods);
+    rotate_about_pt(0, 0, [0, 0, 0]) translate([towerDiam / 2 - podHeight / 2, 0, podDiam / 2 ]) pod(hollowPods);
   }
 }
 
@@ -84,10 +93,11 @@ module base() {
 }
 
 module tower() {
-  for (z = [0 : floor(numberofPods) - 1])
-  translate([0, 0, (podDiam + distanceBetweenLevels) * z]) {
-    level((z % 2) * podAngle / 2);
 
+  for (z = [0 : floor(numberofPods) - 1])
+  translate([0, 0, (podDiam + distanceBetweenLevels) * z + +minDistanceFromTowerBase]) {
+    level((z % 2) * podAngle / 2);
+  minDistanceFromTowerBase = 0;
   }
 
   t();
@@ -126,13 +136,16 @@ module dome(d = 5, h = 2, hollow = false, wallWidth = 0.5, $fn = 128) {
 }
 
 module towerDome() {
-  dome(d = towerDiam, h = 9, hollow = true);
+  difference(){
+   union(){   dome(d = towerDiam, h = 9, hollow = true);
   difference() {
     translate([0, 0, -10]) cylinder(h = 10, d1 = (sprinklerDiam), d2 = (sprinklerDiam));
-    translate([0, 0, -15]) cylinder(h = 15, d1 = (towerDiam - 2*towerThickness), d2 = (towerDiam - 2*towerThickness));
+    translate([0, 0, -15]) cylinder(h = 15, d1 = (sprinklerDiam-sprinkleRingThickness), d2 = (sprinklerDiam-sprinkleRingThickness));
+    
+  } }
+    translate([0, 0, -10]) cylinder(h = 100, d1 = 0.1*sprinklerDiam, d2 = 0.1*sprinklerDiam);
 
-  }
-
+}
 }
 
 /* 
@@ -213,7 +226,7 @@ module SUB_cutSprinklerSide() {
     
 module SUB_sprinklerRing() {
   //Builds the external ring
-  translate([0,0,-25])difference() {
+  translate([0,0,-15])difference() {
     cylinder(h = 40, d1 = (sprinklerDiam), d2 = (sprinklerDiam));
     translate([0,0,-5])cylinder(h = 40, d1 = (sprinklerDiam-sprinkleRingThickness), d2 = (sprinklerDiam-sprinkleRingThickness));
 
@@ -276,4 +289,11 @@ module sprinkler() {
     
 }}
 //SprinklerShelve();
-    sprinkler();
+//sprinkler();
+
+//towerDome();
+
+//tower();
+//level(1);
+
+roboGarden();
