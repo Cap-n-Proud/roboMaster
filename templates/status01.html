@@ -12,6 +12,8 @@
     <script src="https://cdn.jsdelivr.net/npm/clocklet@0.3.0"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js" integrity="sha512-aMGMvNYu8Ue4G+fHa359jcPb1u+ytAF+P2SCb+PxrjCdO3n3ZTxJ30zuH39rimUggmTwmh2u7wvQsDTHESnmfQ==" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 
     <script>
       /* `window.clocklet` object is available */
@@ -37,50 +39,83 @@
   <!-- https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_display_element_hover -->
 
   <body>
-    <table id="trees">
+    <table>
       <tr>
+        <td>
+          <i id="LED" class="material-icons" style="background: rgba(0,0 0,0)">lightbulb-outline</i>
+        </td>
         <td></td>
-        <td></td>
-        <td></td>
+        <td><i id="pump" class="material-icons">swap_vert</i></td>
       </tr>
       <tr>
+        <td id="LED-text"></td>
         <td></td>
-        <td></td>
-        <td></td>
+        <td id="pump-text"></td>
       </tr>
-    </table>
-    <div id="T"> </div>
-    <div id="myData"></div>
+      <tr>
+        <td id="infoBox" colspan="3"></td>
+
+      </tr>
+    </table><br>
+    <div class="select">
+      <select id="s01-01-01" pod="01-01-01" onchange="postPlant(this)">
+        <option>All about that bass</option>
+        <option>Dear Future Husband</option>
+        <option>Close Your Eyes</option>
+      </select>
+    </div>
+    <!-- <i id="LED" class="material-icons">lightbulb-outline</i> -->
+    <!-- lightbulb-outline
+    lightbulb-on-outline
+  https://material.io/resources/icons/?style=round-->
     <script>
       //Calls functions to load defaults and info.
       document.addEventListener("DOMContentLoaded", function() {
 
         // createCheckBoxes();
         getStatus();
-        // t();
       });
-
-      //Get the button
-      var mybutton = document.getElementById("myBtn");
-      mybutton.style.display = "block";
 
       // When the user scrolls down 20px from the top of the document, show the button
       window.onscroll = function() {
-        scrollFunction()
+        // scrollFunction()
       };
-
-      function scrollFunction() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-          mybutton.style.display = "block";
-        } else {
-          mybutton.style.display = "none";
-        }
-      }
 
       // When the user clicks on the button, scroll to the top of the document
       function topFunction() {
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
+      }
+
+
+      function postPlant(cmd) {
+
+        console.log(cmd.value)
+        console.log(cmd.id.replace('s',''))
+        console.log(cmd.pod)
+        console.log(cmd)
+        const URL = `${window.origin}/plant`
+        // post body data
+        const command = {
+          plantName: cmd.value,
+          podID: cmd.id.replace('s','')
+
+        };
+
+        // request options
+        const options = {
+          method: 'POST',
+          body: JSON.stringify(command),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+        console.log(options)
+        // send POST request
+        fetch(URL, options)
+          .then(res => res.json())
+        //.then(res => console.log(res));
+
       }
 
 
@@ -176,7 +211,16 @@
       }
 
 
-
+      // https://stackoverflow.com/questions/19032954/why-is-jsonobject-length-undefined
+      // console.log(data.lenght)
+      // console.log(Object.keys(data.towers).length)
+      // //
+      // console.log(data.towers)
+      // console.log(data.towers[1].name)
+      // console.log(data.towers[1].levels[2].pods)
+      // console.log(data.lenght)
+      // console.log(data.towers[0].tower01[1].pods[0].plantName)
+      // console.log(data.towers[0].level)
       function getStatus() {
         fetch('http://127.0.0.1:5000/api/s')
           .then(function(response) {
@@ -187,86 +231,32 @@
 
             // Access the towers
             for (var t = 0; t < (data.towers).length; t++) {
-              ele.innerHTML = ele.innerHTML + '<table>'
-
+              var x = document.createElement("TABLE");
+              var towerName = data.towers[t].name;
+              x.setAttribute("id", towerName);
+              document.body.appendChild(x);
               // Access the levels
-              for (var l = 0; l < data.towers[t].levels.length; l++) {
-                ele.innerHTML = ele.innerHTML + '<tr>'
-
+              var towerHeight = data.towers[t].levels.length;
+              for (var l = towerHeight - 1; l >= 0; l--) {
+                var table = document.getElementById(towerName);
+                var row = table.insertRow();
+                var zerofilledLevel = ('00' + data.towers[t].levels[l].level).slice(-2);
+                row.setAttribute("id", "level-" + '0' + (t + 1) + '-' + zerofilledLevel)
                 // Acces the pods
-                for (var p = 0; p < data.towers[t].levels[l].pods.length; p++) {
-                  ele.innerHTML = ele.innerHTML + '<td> pod</td>'
-                  // console.log(t, l, p)
-                  // console.log(data.tower s[t].levels[l].pods[p].plantName)
+                var numberOfPods = data.towers[t].levels[l].pods.length;
+                for (var p = 0; p < numberOfPods; p++) {
+                  var cell = row.insertCell(p);
+                  let date = new Date(data.towers[t].levels[l].pods[p].plantedDate);
+                  cell.setAttribute("id", data.towers[t].levels[l].pods[p].podID)
+                  cell.innerHTML = '<span style = "color:grey;font-size:12px;"> ' + data.towers[t].levels[l].pods[p].podID + ' </span><br>' + data.towers[t].levels[l].pods[p].plantName;
+                  cell.innerHTML = cell.innerHTML + '<br><span style="color:grey;font-size:12px;">' + date.getDate() + "-" + date.getMonth() + 1 + "-" + date.getFullYear() + '</span>';
                 }
-                ele.innerHTML = ele.innerHTML + '</tr>'
-
               }
-              ele.innerHTML = ele.innerHTML + '</table>'
-
-
             }
-
-            // https://stackoverflow.com/questions/19032954/why-is-jsonobject-length-undefined
-            // console.log(data.lenght)
-            // console.log(Object.keys(data.towers).length)
-            // //
-            // console.log(data.towers)
-            // console.log(data.towers[1].name)
-            // console.log(data.towers[1].levels[2].pods)
-            // console.log(data.lenght)
-            // console.log(data.towers[0].tower01[1].pods[0].plantName)
-            // console.log(data.towers[0].level)
-
           })
       }
 
-      // https://crunchify.com/how-to-iterate-through-jsonarray-in-javascript/
-      function t(sparkData) {
-        var graph = {
-          "sparkData": [{
-            "one": [97, 5, 69, 35, 28, 52, 51, 55]
-          }, {
-            "two": [96, 63, 18, 55, 13, 47, 77, 64]
-          }, {
-            "three": [94, 75, 83, 44, 43, 86, 68, 26]
-          }]
-        }
-
-        var i = 0
-        document.writeln("<br><br><div align='center'><table border='1'><tr>");
-
-        for (var i = 0; i < graph.sparkData.length; i++) {
-          var obj = graph.sparkData[i];
-          console.log(obj);
-          var crunchifyName;
-          var crunchifyValue;
-
-          document.writeln("<td>");
-          document.writeln("<table border='0'  width=100 >");
-
-          for (var key in obj) {
-            crunchifyName = key;
-            crunchifyValue = obj[key].toString(); +
-            document.writeln("<tr><td><B>" + crunchifyName +
-              ":  </B></td><td width=50>" + crunchifyValue +
-              "</td></tr>");
-            document.writeln("</table>");
-            document.writeln("</td>");
-
-          }
-        }
-        document.writeln("</tr></table></div>");
-      }
-
-
-
-
-
-
-
       var socket = io();
-
 
       $(document).ready(function() {
         // Connect to the Socket.IO server.
@@ -277,22 +267,41 @@
         // The callback function is invoked when a connection with the
         // server is established.
         socket.on('connect', function() {
-          socket.emit('my_event', {
+          socket.emit('statusConnected', {
             data: 'I\'m connected!'
           });
           console.log("connected!")
         });
 
-
-
-
         // Event handler for server sent data.
         // The callback function is invoked whenever the server emits data
         // to the client. The data is then displayed in the "Received"
         // section of the page.
-        socket.on('my_response', function(msg, cb) {
-          $('#log').append('<br>' + $('<div/>').text('Received #' + msg.count + ': ' + msg.data).html());
-          console.log("received")
+        socket.on('telemetry', function(msg, cb) {
+          // https://stackoverflow.com/questions/9053016/replace-spaces-with-commas-with-javascript
+          var cmd = ""
+          document.getElementById("pump-text").innerHTML = msg['pumpON']
+
+          if (msg['Brightness'] == 0) {
+            cmd = "background: rgba(190, 190, 190, 1)"
+            document.getElementById("LED").innerHTML = "lightbulb-outline"
+          } else {
+            cmd = "background: rgba(" + msg['RGB'].split(/[ ,]+/).join(',') + "," + msg['brightness'] / 10 + ")"
+            document.getElementById("LED").innerHTML = "lightbulb-on-outline"
+          }
+          document.getElementById("LED").setAttribute("style", cmd)
+
+          if (msg['pumpON'] == 0) {
+            cmd = "background: rgba(190, 190, 190, 0.5)"
+            document.getElementById("pump").setAttribute("style", cmd)
+          } else {
+            cmd = "background: rgba(0, 0, 0, 0)"
+            document.getElementById("pump").setAttribute("style", cmd)
+          }
+          document.getElementById("LED-text").innerHTML = msg['RGB'] + ' ' + msg['brightness']
+
+          //background: rgba(255, 175, 80, 0.8)
+          //console.log(new Uint8Array(msg))
           if (cb)
             cb();
         });

@@ -6,6 +6,23 @@ table, th, td {
   padding: 20px;
 }
 
+.select select {
+  outline: none;
+  -webkit-appearance: none;
+  display: block;
+  padding: 0em 0em 0em 0em;
+  margin: 0;
+  transition: border-color 0.2s;
+  border: 0px;
+  border-radius: 5px;
+  background: #fff;
+  color: #555;
+  line-height: normal;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
 .datePlantedStatus {
   font-size: 80%;
   color: red;

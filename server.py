@@ -88,7 +88,6 @@ def status():
 # Get list of programs as JSON
 @app.route("/api/programs")
 def program():
-    print("Programs called")
     return jsonify(getProg())
 
 
@@ -98,7 +97,13 @@ def currentProgram():
     return jsonify(getCurrentProgr())
 
 
-# Get current program as JSON
+# Get plants as JSON
+@app.route("/api/plants")
+def getPlants():
+    return jsonify(getPlants())
+
+
+# Get current status as JSON
 @app.route("/api/s")
 def getStatus():
     return jsonify(getStatus())
@@ -116,6 +121,35 @@ def arduinoCommand():
     serial_port.write(str(req["command"] + "\n").encode())
     # res = make_response(jsonify({"message": "OK"}), 200)
     return render_template("index.html", progr=getProg(), currentProg=getCurrentProgr())
+
+
+# https://attacomsian.com/blog/using-javascript-fetch-api-to-get-and-post-data
+# Post a command to the arduino via web interface like swith pump on or off, lights etc
+@app.route("/plant", methods=["POST", "GET"])
+def p():
+    req = request.get_json()
+    print(req)
+
+    with open("status.json", "r") as f:
+        data = json.load(f)
+        try:
+            newPlant = req["plantName"]
+            l = req["podID"]
+            print((data["towers"][l[0]]["levels"][l[1]]["pods"][l[2]]["plantName"]))
+
+            # json.dump(data, f, indent=4)
+
+        except Exception as e:
+            print(e)
+        # console.log(data["towers"][0]["levels"][3]["pods"][0]["plantName"])
+
+    return render_template(
+        "status.html",
+        async_mode=socketio.async_mode,
+        progr=getProg(),
+        currentProg=getCurrentProgr(),
+        dataJSON=dataJSON,
+    )
 
 
 # Post a command to the server, not really used for now
@@ -176,6 +210,12 @@ def getStatus():
 # Retrieve the current program, used to populate the indey.html file
 def getCurrentProgr():
     with open("currentProgram.json") as f:
+        data = json.load(f)
+    return data
+
+
+def getPlants():
+    with open("plants.json") as f:
         data = json.load(f)
     return data
 

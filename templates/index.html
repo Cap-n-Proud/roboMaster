@@ -168,7 +168,7 @@
           document.getElementById("pumpLabel").innerHTML = "ON";
           var timer = document.getElementById("pumpPulse").value;
 
-          var cmd = "pumpStart" + " " + timer
+          var cmd = "pumpRunFor" + " " + timer
           postCommand(cmd)
         } else {
           document.getElementById("pumpLabel").innerHTML = "OFF";

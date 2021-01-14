@@ -57,6 +57,13 @@
 
       </tr>
     </table><br>
+    <div class="select">
+      <select id="s01-01-01" pod="01-01-01" onchange="postPlant(this)">
+        <option>All about that bass</option>
+        <option>Dear Future Husband</option>
+        <option>Close Your Eyes</option>
+      </select>
+    </div>
     <!-- <i id="LED" class="material-icons">lightbulb-outline</i> -->
     <!-- lightbulb-outline
     lightbulb-on-outline
@@ -71,13 +78,38 @@
 
       // When the user scrolls down 20px from the top of the document, show the button
       window.onscroll = function() {
-        scrollFunction()
+        // scrollFunction()
       };
 
       // When the user clicks on the button, scroll to the top of the document
       function topFunction() {
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
+      }
+
+
+      function postPlant(cmd) {
+        const URL = `${window.origin}/plant`
+        // post body data
+        const command = {
+          plantName: cmd.value,
+          podID: cmd.id.replace('s','')
+        };
+
+        // request options
+        const options = {
+          method: 'POST',
+          body: JSON.stringify(command),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+        console.log(options)
+        // send POST request
+        fetch(URL, options)
+          .then(res => res.json())
+        //.then(res => console.log(res));
+
       }
 
 
@@ -183,6 +215,7 @@
       // console.log(data.lenght)
       // console.log(data.towers[0].tower01[1].pods[0].plantName)
       // console.log(data.towers[0].level)
+      // https://gomakethings.com/how-to-use-the-fetch-method-to-make-multiple-api-calls-with-vanilla-javascript/
       function getStatus() {
         fetch('http://127.0.0.1:5000/api/s')
           .then(function(response) {
@@ -212,6 +245,13 @@
                   cell.setAttribute("id", data.towers[t].levels[l].pods[p].podID)
                   cell.innerHTML = '<span style = "color:grey;font-size:12px;"> ' + data.towers[t].levels[l].pods[p].podID + ' </span><br>' + data.towers[t].levels[l].pods[p].plantName;
                   cell.innerHTML = cell.innerHTML + '<br><span style="color:grey;font-size:12px;">' + date.getDate() + "-" + date.getMonth() + 1 + "-" + date.getFullYear() + '</span>';
+                  cell.innerHTML = cell.innerHTML + '<select id="s' + data.towers[t].levels[l].pods[p].podID + '" onchange="postPlant(this)">'
+
+                    <option>All about that bass</option>
+                    <option value="starter" selected>Starter </option>
+                    <option>Dear Future Husband</option>
+                    <option>Close Your Eyes</option>
+                  cell.innerHTML = cell.innerHTML + '</select>'
                 }
               }
             }

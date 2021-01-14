@@ -33,6 +33,8 @@ sprinlkerAngle=10;
 sprinklerDiam=towerID;
 sprinklerHoleDiam = 5;
 
+anchor = false;
+
 numberofPods = towerHeight / (podDiam + distanceBetweenLevels);
 dbpc = 2 * distanceBetweenLevels + 2 * podDiam;
 echo("distace between pod centers: ", dbpc);
@@ -182,21 +184,21 @@ module arc(height, depth, radius, degrees) {
   }
 }
 
-module SUB_sprinklerInflow() {
+module SUB_sprinklerInflow(anchor) {
   sprinklerTubeThick = 3;
     //Inflow attachment
   translate([0,0,-15])difference() {
     union() {
-      cylinder(h = 20, d1 = (pipeDiamIN), d2 = (pipeDiamIN));
+      cylinder(h = 20, d1 = (pipeDiamIN+1), d2 = (pipeDiamIN+1));
    // translate([0,0,2])SUB_sprinklerRing();
-      anchor_diameter = 1;
+     if (anchor == true){ anchor_diameter = 1;
       for (i = [0 : 3]) {
         translate([0, 0, 4 * i]) rotate_extrude(angle = 360) {
           translate([(pipeDiamIN + 1 * T) / 2 - anchor_diameter / 2, 0])
           circle(d = anchor_diameter);
         }
       }
-    }
+    }}
     translate([0, 0, -10]) rotate([0, 0, 0]) cylinder(h = 40, d1 = (pipeDiamIN - sprinklerTubeThick), d2 = (pipeDiamIN - sprinklerTubeThick));
     
      }
@@ -291,9 +293,9 @@ module sprinkler() {
 //SprinklerShelve();
 //sprinkler();
 
-//towerDome();
+towerDome();
 
 //tower();
 //level(1);
 
-roboGarden();
+//roboGarden();
