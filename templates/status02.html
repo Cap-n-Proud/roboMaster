@@ -59,9 +59,9 @@
     </table><br>
     <div class="select">
       <select id="s01-01-01" pod="01-01-01" onchange="postPlant(this)">
-        <option value = "a">All about that bass</option>
-        <option value = "b">Dear Future Husband</option>
-        <option value = "c">Close Your Eyes</option>
+        <option>All about that bass</option>
+        <option>Dear Future Husband</option>
+        <option>Close Your Eyes</option>
       </select>
     </div>
     <!-- <i id="LED" class="material-icons">lightbulb-outline</i> -->
@@ -97,14 +97,12 @@
         document.documentElement.scrollTop = 0;
       }
 
-// https://stackoverflow.com/questions/610336/retrieving-the-text-of-the-selected-option-in-select-element
+
       function postPlant(cmd) {
-        console.log(cmd);
-        const URL = `${window.origin}/api/plant`
+        const URL = `${window.origin}/plant`
         // post body data
         const command = {
-          plantName: cmd.options[cmd.selectedIndex].text,
-          plantID: cmd.value,
+          plantName: cmd.value,
           podID: cmd.id.replace('s','')
         };
 
@@ -116,7 +114,7 @@
             'Content-Type': 'application/json'
           }
         }
-        // console.log(options)
+        console.log(options)
         // send POST request
         fetch(URL, options)
           .then(res => res.json())
@@ -149,7 +147,7 @@
 
 
       function getPlants()
-      {        const URL = `${window.origin}/api/getPlants`
+      {        const URL = `${window.origin}/api/plants`
 
         fetch(URL)
           .then(function(response) {
@@ -209,7 +207,7 @@
               })
           .then(function(data) {
             var ele = document.getElementById('T');
-            // console.log(data)
+
             // Access the towers
             for (var t = 0; t < (data.towers).length; t++) {
               var x = document.createElement("TABLE");
@@ -229,23 +227,22 @@
                   var cell = row.insertCell(p);
                   let date = new Date(data.towers[t].levels[l].pods[p].plantedDate);
                   cell.setAttribute("id", data.towers[t].levels[l].pods[p].podID)
-                  // cell.innerHTML = '<span style = "color:grey;font-size:12px;"> ' + data.towers[t].levels[l].pods[p].podID + ' </span><br>' + data.towers[t].levels[l].pods[p].plantName;
-
-                  // Adds select to plant plants
-                  var sel = ""
-                  var select = ""
-                  sel =  '<div class="select"><select style="color: black;" id="s' + data.towers[t].levels[l].pods[p].podID +  '" onchange="postPlant(this)"><option value="empty">empty</option>'
-
-                  for (var x = 0; x <= pa.plants.length -1; x++) {
-                    if (pa.plants[x].plantID == data.towers[t].levels[l].pods[p].plantID) {selected = 'selected'} else {selected = ''}
-
-                    sel = sel + '<option value="' + pa.plants[x].plantID +'"' + selected + '>' + pa.plants[x].name + ' </option>'
-                  } sel = sel +'</select></div>'
-                  cell.innerHTML = cell.innerHTML + sel
-
-                  // Adds date planted
+                  cell.innerHTML = '<span style = "color:grey;font-size:12px;"> ' + data.towers[t].levels[l].pods[p].podID + ' </span><br>' + data.towers[t].levels[l].pods[p].plantName;
                   cell.innerHTML = cell.innerHTML + '<br><span style="color:grey;font-size:12px;">' + date.getDate() + "-" + date.getMonth() + 1 + "-" + date.getFullYear() + '</span>';
+                  cell.innerHTML = cell.innerHTML + '<select id="s' + data.towers[t].levels[l].pods[p].podID +  '" onchange="postPlant(this)">'
+                  // console.log(pa.plants[2].name);
+                  // console.log(pa.plants[1].name);
+                  var sel = ""
+                  for (var x = 0; x <= pa.plants.length -1; x++) {
+                    // console.log(pa.plants[x].name);
+                    // console.log(x);
 
+                        // <option>All about that bass</option>
+                    sel = sel + '<option value="' + pa.plants[x].name +'" selected>' + pa.plants[x].name + ' </option>'
+                  }
+                  // <option>Dear Future Husband</option>
+                    // <option>Close Your Eyes</option>
+                  cell.innerHTML = cell.innerHTML + sel + '</select>'
                 }
               }
             }

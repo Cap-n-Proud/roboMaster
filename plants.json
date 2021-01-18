@@ -1,24 +1,24 @@
 {
   "plants": [
     {
-      "ID": "001",
+      "plantID": "001",
       "name": "Tomato Montfavet",
       "latinName": "Lycopersicon Esculentum Mil"
     },
     {
-      "ID": "002",
+      "plantID": "002",
       "name": "Lattuga da taglio Bionda a foglia liscia",
       "latinName": "Lycopersicon Esculentum Mil"
     },
     {
-      "ID": "003",
+      "plantID": "003",
       "name": "Tomato Montfavet",
       "latinName": "Lactuca Sativa Var Crispa"
     },
     {
-      "ID": "004",
-      "name": "Mint",
-      "latinName": "Mentha Piperita"
+      "plantID": "004",
+      "name": "Strawberry",
+      "latinName": "Strawberry"
     }
   ]
 }

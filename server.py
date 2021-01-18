@@ -94,7 +94,7 @@ def currentProgram():
 
 
 # Get plants as JSON
-@app.route("/api/plants")
+@app.route("/api/getPlants")
 def getP():
     return jsonify(getPlants())
 
@@ -121,7 +121,7 @@ def arduinoCommand():
 
 # https://attacomsian.com/blog/using-javascript-fetch-api-to-get-and-post-data
 # Post a command to the arduino via web interface like swith pump on or off, lights etc
-@app.route("/plant", methods=["POST", "GET"])
+@app.route("/api/plant", methods=["POST", "GET"])
 def p():
     req = request.get_json()
     print(req)
@@ -130,11 +130,26 @@ def p():
         data = json.load(f)
         try:
             newPlant = req["plantName"]
-            l = req["podID"]
-            print((data["towers"][l[0]]["levels"][l[1]]["pods"][l[2]]["plantName"]))
-
+            l = req["podID"].split("-")
+            # print(l)
+            print(
+                data["towers"][int(l[0])]["levels"][int(l[1])]["pods"][int(l[2])][
+                    "plantName"
+                ]
+            )
+            data["towers"][int(l[0])]["levels"][int(l[1])]["pods"][int(l[2])][
+                "plantName"
+            ] = req["plantName"]
+            data["towers"][int(l[0])]["levels"][int(l[1])]["pods"][int(l[2])][
+                "plantID"
+            ] = req["plantID"]
+            json.dump(data, open("status.json", "w"), indent=4)
             # json.dump(data, f, indent=4)
-
+            print(
+                data["towers"][int(l[0])]["levels"][int(l[1])]["pods"][int(l[2])][
+                    "plantName"
+                ]
+            )
         except Exception as e:
             print(e)
         # console.log(data["towers"][0]["levels"][3]["pods"][0]["plantName"])

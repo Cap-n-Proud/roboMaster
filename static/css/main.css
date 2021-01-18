@@ -12,11 +12,10 @@ table, th, td {
   display: block;
   padding: 0em 0em 0em 0em;
   margin: 0;
-  transition: border-color 0.2s;
   border: 0px;
-  border-radius: 5px;
+  border-radius: 0px;
   background: #fff;
-  color: #555;
+  color: inherit;
   line-height: normal;
   font-family: inherit;
   font-size: inherit;

@@ -72,8 +72,8 @@
                         },
                         {
                             "podID": "00-03-01",
-                            "plantID": "004",
-                            "plantName": "Strawberry",
+                            "plantID": "000",
+                            "plantName": "Basil",
                             "plantedDate": "2016-04-26T18:09:16Z",
                             "harvestInDays": 30
                         }
@@ -167,8 +167,8 @@
                         },
                         {
                             "podID": "00-08-01",
-                            "plantID": "002",
-                            "plantName": "Lattuga da taglio Bionda a foglia liscia",
+                            "plantID": "000",
+                            "plantName": "Strawberry",
                             "plantedDate": "2016-04-26T18:09:16Z",
                             "harvestInDays": 30
                         }
@@ -179,15 +179,15 @@
                     "pods": [
                         {
                             "podID": "00-09-00",
-                            "plantID": "001",
-                            "plantName": "Tomato Montfavet",
+                            "plantID": "000",
+                            "plantName": "Strawberry",
                             "plantedDate": "2016-04-26T18:09:16Z",
                             "harvestInDays": 30
                         },
                         {
                             "podID": "00-09-01",
-                            "plantID": "001",
-                            "plantName": "Tomato Montfavet",
+                            "plantID": "000",
+                            "plantName": "Strawberry",
                             "plantedDate": "2016-04-26T18:09:16Z",
                             "harvestInDays": 30
                         }
@@ -241,8 +241,8 @@
                     "pods": [
                         {
                             "podID": "01-02-00",
-                            "plantID": "003",
-                            "plantName": "Tomato Montfavet",
+                            "plantID": "000",
+                            "plantName": "Mint",
                             "plantedDate": "2016-04-26T18:09:16Z",
                             "harvestInDays": 30
                         },
@@ -260,8 +260,8 @@
                     "pods": [
                         {
                             "podID": "01-03-00",
-                            "plantID": "002",
-                            "plantName": "Lattuga da taglio Bionda a foglia liscia",
+                            "plantID": "000",
+                            "plantName": "Basil",
                             "plantedDate": "2016-04-26T18:09:16Z",
                             "harvestInDays": 30
                         },
@@ -389,8 +389,7 @@
                     ]
                 }
             ]
-        },
-        {
+        },{
             "name": "tower03",
             "levels": [
                 {
