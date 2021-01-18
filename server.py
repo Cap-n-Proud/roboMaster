@@ -131,25 +131,15 @@ def p():
         try:
             newPlant = req["plantName"]
             l = req["podID"].split("-")
-            # print(l)
-            print(
-                data["towers"][int(l[0])]["levels"][int(l[1])]["pods"][int(l[2])][
-                    "plantName"
-                ]
-            )
-            data["towers"][int(l[0])]["levels"][int(l[1])]["pods"][int(l[2])][
-                "plantName"
-            ] = req["plantName"]
-            data["towers"][int(l[0])]["levels"][int(l[1])]["pods"][int(l[2])][
-                "plantID"
-            ] = req["plantID"]
+            currentPod = data["towers"][int(l[0])]["levels"][int(l[1])]["pods"][
+                int(l[2])
+            ]
+            print(currentPod["plantName"])
+            currentPod["plantName"] = req["plantName"]
+            currentPod["plantID"] = req["plantID"]
+            currentPod["plantedDate"] = req["plantedDate"]
             json.dump(data, open("status.json", "w"), indent=4)
-            # json.dump(data, f, indent=4)
-            print(
-                data["towers"][int(l[0])]["levels"][int(l[1])]["pods"][int(l[2])][
-                    "plantName"
-                ]
-            )
+
         except Exception as e:
             print(e)
         # console.log(data["towers"][0]["levels"][3]["pods"][0]["plantName"])

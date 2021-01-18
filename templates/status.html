@@ -105,7 +105,8 @@
         const command = {
           plantName: cmd.options[cmd.selectedIndex].text,
           plantID: cmd.value,
-          podID: cmd.id.replace('s','')
+          podID: cmd.id.replace('s',''),
+          plantedDate: (new Date().toJSON())
         };
 
         // request options
@@ -229,7 +230,7 @@
                   var cell = row.insertCell(p);
                   let date = new Date(data.towers[t].levels[l].pods[p].plantedDate);
                   cell.setAttribute("id", data.towers[t].levels[l].pods[p].podID)
-                  // cell.innerHTML = '<span style = "color:grey;font-size:12px;"> ' + data.towers[t].levels[l].pods[p].podID + ' </span><br>' + data.towers[t].levels[l].pods[p].plantName;
+                  cell.innerHTML = '<span style = "color:grey;font-size:12px;"> ' + data.towers[t].levels[l].pods[p].podID + ' </span><br>';
 
                   // Adds select to plant plants
                   var sel = ""
