@@ -144,9 +144,9 @@
                     "pods": [
                         {
                             "podID": "00-08-00",
-                            "plantID": "000",
-                            "plantName": "Strawberry",
-                            "plantedDate": "2016-04-26T18:09:16Z"
+                            "plantID": "014",
+                            "plantName": "Nussalad Vera",
+                            "plantedDate": "2021-01-18T23:35:48.900Z"
                         },
                         {
                             "podID": "00-08-01",
@@ -517,9 +517,9 @@
                         },
                         {
                             "podID": "02-09-01",
-                            "plantID": "000",
-                            "plantName": "Strawberry",
-                            "plantedDate": "2016-04-26T18:09:16Z"
+                            "plantID": "001",
+                            "plantName": "Tomato Montfavet",
+                            "plantedDate": "2021-01-18T23:31:41.900Z"
                         }
                     ]
                 }
