@@ -76,11 +76,7 @@ def index():
 @app.route("/status")
 def status():
     return render_template(
-        "status.html",
-        async_mode=socketio.async_mode,
-        progr=getProg(),
-        currentProg=getCurrentProgr(),
-        dataJSON=dataJSON,
+        "status.html", async_mode=socketio.async_mode, plants=getPlants(),
     )
 
 
@@ -99,7 +95,7 @@ def currentProgram():
 
 # Get plants as JSON
 @app.route("/api/plants")
-def getPlants():
+def getP():
     return jsonify(getPlants())
 
 

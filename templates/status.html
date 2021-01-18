@@ -73,7 +73,17 @@
       document.addEventListener("DOMContentLoaded", function() {
 
         // createCheckBoxes();
-        getStatus();
+        var p = JSON.parse('{{ plants  | tojson | safe}}');
+        console.log(p.plants[1]);
+        console.log(p.plants.length);
+
+        // plants = getPlants()
+        // do something with json
+        console.log("done!!!");
+        // console.log(plants);
+        getStatus(p);
+
+
       });
 
       // When the user scrolls down 20px from the top of the document, show the button
@@ -133,6 +143,20 @@
         fetch(URL, options)
           .then(res => res.json())
         //.then(res => console.log(res));
+      }
+
+
+      function getPlants()
+      {        const URL = `${window.origin}/api/plants`
+
+        fetch(URL)
+          .then(function(response) {
+            return response.json();
+          })
+          .then(function(data) {
+            console.log(data);
+            return data;
+          })
       }
 
       function getCurrentProgram() {
@@ -205,22 +229,16 @@
       }
 
 
-      // https://stackoverflow.com/questions/19032954/why-is-jsonobject-length-undefined
-      // console.log(data.lenght)
-      // console.log(Object.keys(data.towers).length)
-      // //
-      // console.log(data.towers)
-      // console.log(data.towers[1].name)
-      // console.log(data.towers[1].levels[2].pods)
-      // console.log(data.lenght)
-      // console.log(data.towers[0].tower01[1].pods[0].plantName)
-      // console.log(data.towers[0].level)
       // https://gomakethings.com/how-to-use-the-fetch-method-to-make-multiple-api-calls-with-vanilla-javascript/
-      function getStatus() {
+      function getStatus(pa) {
         fetch('http://127.0.0.1:5000/api/s')
           .then(function(response) {
-            return response.json();
-          })
+            if (response.ok) {
+            		return response.json();
+            	} else {
+            		return Promise.reject(response);
+            	}
+              })
           .then(function(data) {
             var ele = document.getElementById('T');
 
@@ -245,12 +263,17 @@
                   cell.setAttribute("id", data.towers[t].levels[l].pods[p].podID)
                   cell.innerHTML = '<span style = "color:grey;font-size:12px;"> ' + data.towers[t].levels[l].pods[p].podID + ' </span><br>' + data.towers[t].levels[l].pods[p].plantName;
                   cell.innerHTML = cell.innerHTML + '<br><span style="color:grey;font-size:12px;">' + date.getDate() + "-" + date.getMonth() + 1 + "-" + date.getFullYear() + '</span>';
-                  cell.innerHTML = cell.innerHTML + '<select id="s' + data.towers[t].levels[l].pods[p].podID + '" onchange="postPlant(this)">'
-
-                    <option>All about that bass</option>
-                    <option value="starter" selected>Starter </option>
-                    <option>Dear Future Husband</option>
-                    <option>Close Your Eyes</option>
+                  cell.innerHTML = cell.innerHTML + '<select id="s' + data.towers[t].levels[l].pods[p].podID +  '" onchange="postPlant(this)">'
+                  // console.log(plants.plants.length);
+                  // console.log(plants.plants[1].name);
+                  console.log(pa.plants[1].name);
+                  for (var pl = 0; pl <= pa.plants.lenght;pl++){
+                  console.log(pa.plants[pl].name);
+                }
+                    // <option>All about that bass</option>
+                    // <option value="starter" selected>Starter </option>
+                    // <option>Dear Future Husband</option>
+                    // <option>Close Your Eyes</option>
                   cell.innerHTML = cell.innerHTML + '</select>'
                 }
               }

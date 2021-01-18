@@ -1,5 +1,8 @@
 $fn = 200;
 towerDiam = 75;
+
+collectorDiam =25;
+
 towerThickness = 2;
 towerID = towerDiam - 2* towerThickness;
 towerHeight = 1000;
@@ -34,6 +37,9 @@ sprinklerDiam=towerID;
 sprinklerHoleDiam = 5;
 
 anchor = false;
+
+
+
 
 numberofPods = towerHeight / (podDiam + distanceBetweenLevels);
 dbpc = 2 * distanceBetweenLevels + 2 * podDiam;
@@ -293,9 +299,27 @@ module sprinkler() {
 //SprinklerShelve();
 //sprinkler();
 
-towerDome();
+//towerDome();
 
 //tower();
 //level(1);
 
 //roboGarden();
+colFunnelHeight =10;
+
+
+difference(){
+translate([0,0,colFunnelHeight])cylinder(h=2*colFunnelHeight , d2=collectorDiam ,d1=collectorDiam);
+translate([0,0,colFunnelHeight])cylinder(h=2*colFunnelHeight , d2=collectorDiam - towerThickness ,d1=collectorDiam-towerThickness);
+
+}
+difference(){
+cylinder(h=colFunnelHeight , d2=collectorDiam ,d1=towerDiam + 2*towerThickness);
+cylinder(h=colFunnelHeight , d2=collectorDiam - towerThickness,d1=towerDiam);
+}
+difference()
+{
+    translate([0,0,-3*colFunnelHeight])cylinder(h=3*colFunnelHeight , d2=towerDiam + 2*towerThickness ,d1=towerDiam + 2*towerThickness);
+    
+    translate([0,0,-3*colFunnelHeight])cylinder(h=3*colFunnelHeight , d2=towerDiam, d1=towerDiam);
+}
