@@ -25,15 +25,15 @@
                     "pods": [
                         {
                             "podID": "00-01-00",
-                            "plantID": "000",
-                            "plantName": "Lettuce",
-                            "plantedDate": "2016-04-26T18:09:16Z"
+                            "plantID": "003",
+                            "plantName": "Basilico Grande Genovese",
+                            "plantedDate": "2021-01-18T23:30:32.800Z"
                         },
                         {
                             "podID": "00-01-01",
-                            "plantID": "000",
-                            "plantName": "Lettuce",
-                            "plantedDate": "2016-04-26T18:09:16Z"
+                            "plantID": "003",
+                            "plantName": "Basilico Grande Genovese",
+                            "plantedDate": "2021-01-18T23:29:53.600Z"
                         }
                     ]
                 },
@@ -167,9 +167,9 @@
                         },
                         {
                             "podID": "00-09-01",
-                            "plantID": "003",
-                            "plantName": "Basilico Grande Genovese",
-                            "plantedDate": "2016-04-26T18:09:16Z"
+                            "plantID": "empty",
+                            "plantName": "empty",
+                            "plantedDate": "2021-01-18T23:30:48.300Z"
                         }
                     ]
                 }

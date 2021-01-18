@@ -139,10 +139,18 @@ def p():
             currentPod["plantID"] = req["plantID"]
             currentPod["plantedDate"] = req["plantedDate"]
             json.dump(data, open("status.json", "w"), indent=4)
-
+            I = (
+                "Planted: "
+                + currentPod["plantID"]
+                + " "
+                + newPlant
+                + " in "
+                + req["podID"]
+            )
+            app.logger.info(I)
+            broadcastInfo(I)
         except Exception as e:
             print(e)
-        # console.log(data["towers"][0]["levels"][3]["pods"][0]["plantName"])
 
     return render_template(
         "status.html",
@@ -163,7 +171,7 @@ def serverCommand():
 
             # Parse the JSON into a Python dictionary
             req = request.get_json()
-            print(req)
+            # print(req)
 
             # Return a string along with an HTTP status code
             return "JSON received!", 200
