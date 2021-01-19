@@ -1262,3 +1262,8 @@ Traceback (most recent call last):
   File "/home/paolo/VEnv/roboGarden/lib/python3.8/site-packages/engineio/payload.py", line 44, in decode
     raise ValueError('Too many packets in payload')
 ValueError: Too many packets in payload
+2021-01-20 00:05:12,204 WARNING server Thread-1 : Received non-JSON from Arduino: b',"RGB":"0 0 0","brightness":0}\r\n'
+2021-01-20 00:05:12,205 WARNING server Thread-1 : Received non-JSON from Arduino: b'0","brightness":0}\r\n'
+2021-01-20 00:06:02,630 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-20 00:06:03,133 INFO server Thread-1 : Info from Arduino: LED set to RGB: 255 0 255 
+2021-01-20 00:06:03,522 INFO server Thread-2 : Lights ON, RGB also set

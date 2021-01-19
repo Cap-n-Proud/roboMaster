@@ -342,7 +342,7 @@ def checkLights(currentProgram):
             app.logger.info("Lights OFF, RGB also set")
 
 
-if __name__ == "__main__":
+def initialize():
     currentProgram = getCurrentProgr()
 
     # print(currentProgram["progName"])
@@ -351,21 +351,22 @@ if __name__ == "__main__":
     # print(currentProgram["RGB"])
 
     checkL = RepeatedTimer(
-        1, checkLights, currentProgram
+        2, checkLights, currentProgram
     )  # it auto-starts, no need of rt.start()
     checkP = RepeatedTimer(
         currentProgram["pumpStartEvery"], checkPump, currentProgram["pumpRunTime"]
     )  # it auto-starts, no need of rt.start()
     obj_now = datetime.now()
     timeNow = str(obj_now.hour).zfill(2) + ":" + str(obj_now.minute).zfill(2)
-    print("Current hour =", str(obj_now.hour).zfill(2))
-    print("Current minute =", str(obj_now.minute).zfill(2))
-    print("Current second =", str(obj_now.second).zfill(2))
-    print(timeNow, currentProgram["lightsON"])
-    print(is_between(currentProgram["lightsON"], currentProgram["lightsOFF"], timeNow))
-    print(is_between(currentProgram["pumpON"], currentProgram["pumpOFF"], timeNow))
     # checkT.stop()
     socketio.run(app)
+
+
+if __name__ == "__main__":
+    initialize()
+else:
+    print("Program imported")
+    initialize()
 
 """
 
