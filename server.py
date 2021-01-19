@@ -8,15 +8,16 @@ from threading import Lock
 
 import serial
 from flask import Flask, jsonify, redirect, render_template, request, session, url_for
-from flask_cors import CORS, cross_origin
+
+# from flask_cors import CORS, cross_origin
 from flask_socketio import SocketIO, disconnect, emit
 from L_events import *
 from serial.tools import list_ports
 
 app = Flask(__name__)
 app.debug = True
-cors = CORS(app, resources={r"/*": {"origins": "*"}})
-app.config["CORS_HEADERS"] = "Content-Type"
+# cors = CORS(app, resources={r"/*": {"origins": "*"}})
+# app.config["CORS_HEADERS"] = "Content-Type"
 
 logging.basicConfig(
     filename="record.log",
@@ -66,7 +67,7 @@ socketio = SocketIO(app, cors_allowed_origins="*", async_mode=async_mode)
 
 
 @app.route("/")
-@cross_origin()
+# @cross_origin()
 def index():
     return render_template(
         "index.html",
@@ -77,7 +78,7 @@ def index():
 
 
 @app.route("/status")
-@cross_origin()
+# @cross_origin()
 def status():
     return render_template(
         "status.html",
@@ -91,21 +92,21 @@ def status():
 # API programming
 # Get list of programs as JSON
 @app.route("/api/programs")
-@cross_origin()
+# @cross_origin()
 def program():
     return jsonify(getProg())
 
 
 # Get current program as JSON
 @app.route("/api/currentProgram")
-@cross_origin()
+# @cross_origin()
 def currentProgram():
     return jsonify(getCurrentProgr())
 
 
 # Get plants as JSON
 @app.route("/api/getPlants")
-@cross_origin()
+# @cross_origin()
 def getP():
     return jsonify(getPlants())
 
@@ -119,7 +120,7 @@ def getStatus():
 # https://attacomsian.com/blog/using-javascript-fetch-api-to-get-and-post-data
 # Post a command to the arduino via web interface like swith pump on or off, lights etc
 @app.route("/arduinoCommand", methods=["POST", "GET"])
-@cross_origin()
+# @cross_origin()
 def arduinoCommand():
 
     req = request.get_json()
@@ -134,7 +135,7 @@ def arduinoCommand():
 # https://attacomsian.com/blog/using-javascript-fetch-api-to-get-and-post-data
 # Post a command to the arduino via web interface like swith pump on or off, lights etc
 @app.route("/api/plant", methods=["POST", "GET"])
-@cross_origin()
+# @cross_origin()
 def p():
     req = request.get_json()
     print(req)
@@ -172,7 +173,7 @@ def p():
 
 # Post a command to the server, not really used for now
 @app.route("/serverCommand", methods=["POST", "GET"])
-@cross_origin()
+# @cross_origin()
 def serverCommand():
     if request.method == "POST":
         result = request.form
@@ -330,18 +331,19 @@ def checkLights(currentProgram):
     obj_now = datetime.now()
     timeNow = str(obj_now.hour).zfill(2) + ":" + str(obj_now.minute).zfill(2)
     # lights (RGB, brightness, timeON/OFF)
-    # check if between light on timer
     if is_between(currentProgram["lightsON"], currentProgram["lightsOFF"], timeNow):
         try:
-            test = dataJSON["brightness"]
-
             if dataJSON["brightness"] == 0:  # print("Lights should be ON")
                 arduinoCommand2(
                     "setBrightness " + str(currentProgram["lightBrightness"])
                 )
                 arduinoCommand2("setLightRGB " + str(currentProgram["RGB"]))
-                print("Brightness set to default")
-                app.logger.info("Lights ON, RGB also set")
+                app.logger.info(
+                    "Brightness set to: "
+                    + str(currentProgram["lightBrightness"])
+                    + " LED set to: "
+                    + str(currentProgram["RGB"])
+                )
 
         except ValueError as e:
             print(e)
@@ -351,7 +353,7 @@ def checkLights(currentProgram):
             app.logger.info("Lights OFF, RGB also set")
 
 
-if __name__ == "__main__":
+def initialize():
     currentProgram = getCurrentProgr()
 
     # print(currentProgram["progName"])
@@ -375,6 +377,13 @@ if __name__ == "__main__":
     print(is_between(currentProgram["pumpON"], currentProgram["pumpOFF"], timeNow))
     # checkT.stop()
     socketio.run(app)
+
+
+if __name__ == "__main__":
+    initialize()
+else:
+    print("Program imported")
+    initialize()
 
 """
 {

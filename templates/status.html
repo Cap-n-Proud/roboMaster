@@ -21,7 +21,6 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Changa|Frank+Ruhl+Libre:500">
 
-
     <style>
       .clocklet-options-1 {
         font-family: Changa, sans-serif;
@@ -54,16 +53,8 @@
       </tr>
       <tr>
         <td id="infoBox" colspan="3"></td>
-
       </tr>
     </table><br>
-    <div class="select">
-      <select id="s01-01-01" pod="01-01-01" onchange="postPlant(this)">
-        <option value = "a">All about that bass</option>
-        <option value = "b">Dear Future Husband</option>
-        <option value = "c">Close Your Eyes</option>
-      </select>
-    </div>
     <!-- <i id="LED" class="material-icons">lightbulb-outline</i> -->
     <!-- lightbulb-outline
     lightbulb-on-outline
@@ -76,15 +67,8 @@
         var p = JSON.parse('{{ plants  | tojson | safe}}');
         var s = JSON.parse('{{ status  | tojson | safe}}');
         var pr = JSON.parse('{{ currentProg  | tojson | safe}}');
-        // console.log(p.plants[1]);
-        // console.log(p.plants.length);
 
-        // plants = getPlants()
-        // do something with json
-        // console.log("done!!!");
-        // console.log(plants);
         getStatus(p,s);
-
 
       });
 
@@ -163,8 +147,6 @@
           })
       }
 
-
-
       function hexTorgb(hex) {
         return ['0x' + hex[1] + hex[2] | 0, '0x' + hex[3] + hex[4] | 0, '0x' + hex[5] + hex[6] | 0];
       }
@@ -182,16 +164,15 @@
 
           // https://gomakethings.com/how-to-use-the-fetch-method-to-make-multiple-api-calls-with-vanilla-javascript/
       function getStatus(p,data) {
-
-
             var ele = document.getElementById('T');
-            // console.log(data)
+
             // Access the towers
             for (var t = 0; t < (data.towers).length; t++) {
               var x = document.createElement("TABLE");
               var towerName = data.towers[t].name;
               x.setAttribute("id", towerName);
               document.body.appendChild(x);
+
               // Access the levels
               var towerHeight = data.towers[t].levels.length;
               for (var l = towerHeight - 1; l >= 0; l--) {
@@ -199,6 +180,7 @@
                 var row = table.insertRow();
                 var zerofilledLevel = ('00' + data.towers[t].levels[l].level).slice(-2);
                 row.setAttribute("id", "level-" + '0' + (t + 1) + '-' + zerofilledLevel)
+
                 // Acces the pods
                 var numberOfPods = data.towers[t].levels[l].pods.length;
                 for (var m = 0; m < numberOfPods; m++) {
@@ -225,7 +207,6 @@
                 }
               }
             }
-
       }
 
       var socket = io();
@@ -277,6 +258,7 @@
           if (cb)
             cb();
         });
+
         socket.on('info', function(msg, cb) {
           document.getElementById("infoBox").innerHTML = msg.replace("I,", "")
           if (cb)
