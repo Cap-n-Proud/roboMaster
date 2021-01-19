@@ -8,9 +8,9 @@
                     "pods": [
                         {
                             "podID": "00-00-00",
-                            "plantID": "008",
-                            "plantName": "Fragola Alexandria",
-                            "plantedDate": "2021-01-18T23:22:05.100Z"
+                            "plantID": "014",
+                            "plantName": "Nussalad Vera",
+                            "plantedDate": "2021-01-19T12:56:03.100Z"
                         },
                         {
                             "podID": "00-00-01",
@@ -133,9 +133,9 @@
                         },
                         {
                             "podID": "00-07-01",
-                            "plantID": "000",
-                            "plantName": "Strawberry",
-                            "plantedDate": "2016-04-26T18:09:16Z"
+                            "plantID": "018",
+                            "plantName": "Rucola Perenne",
+                            "plantedDate": "2021-01-18T23:40:01.200Z"
                         }
                     ]
                 },
@@ -167,9 +167,9 @@
                         },
                         {
                             "podID": "00-09-01",
-                            "plantID": "empty",
-                            "plantName": "empty",
-                            "plantedDate": "2021-01-18T23:30:48.300Z"
+                            "plantID": "003",
+                            "plantName": "Basilico Grande Genovese",
+                            "plantedDate": "2021-01-18T23:39:43.700Z"
                         }
                     ]
                 }

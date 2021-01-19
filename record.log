@@ -3,3 +3,37 @@
 2021-01-19 00:35:32,958 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 0 0 
 2021-01-19 00:35:33,339 INFO server Thread-2 : Lights ON, RGB also set
 2021-01-19 00:35:48,982 INFO server Thread-111 : Planted: 014 Nussalad Vera in 00-08-00
+2021-01-19 00:39:19,838 INFO server Thread-1189 : Planted: 001 Tomato Montfavet in 00-09-01
+2021-01-19 00:39:40,274 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-19 00:39:40,777 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 0 0 
+2021-01-19 00:39:41,166 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-19 00:39:43,746 INFO server Thread-31 : Planted: 003 Basilico Grande Genovese in 00-09-01
+2021-01-19 00:40:01,280 INFO server Thread-124 : Planted: 018 Rucola Perenne in 00-07-01
+2021-01-19 13:51:14,903 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-19 13:51:15,406 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 0 0 
+2021-01-19 13:51:15,795 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-19 13:51:16,283 WARNING server Thread-1 : Received non-JSON from Arduino: b'y:T,pmO"0"G""0  ""rgtness":80}\r\n'
+2021-01-19 13:53:04,061 WARNING server Thread-1 : Received non-JSON from Arduino: b'80}\r\n'
+2021-01-19 13:53:04,066 WARNING server Thread-1 : Received non-JSON from Arduino: b'ghtness":80}\r\n'
+2021-01-19 13:53:05,174 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-19 13:53:05,677 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 0 0 
+2021-01-19 13:53:06,067 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-19 13:53:06,570 WARNING server Thread-1 : Received non-JSON from Arduino: b'p":T,pmO"0"200 ,rgns:80}\r\n'
+2021-01-19 13:53:31,165 WARNING server Thread-1 : Received non-JSON from Arduino: b'T","pumpON":0,"RGB":"200 0 0","brightness":80}\r\n'
+2021-01-19 13:53:32,279 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-19 13:53:32,779 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 0 0 
+2021-01-19 13:53:33,170 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-19 13:53:33,672 WARNING server Thread-1 : Received non-JSON from Arduino: b'{"tp":"T""upN":0,"RGB""0  ""rghtness":80}\r\n'
+2021-01-19 13:53:34,171 WARNING server Thread-1 : Received non-JSON from Arduino: b'"tp""""upN:,:200 0,ihtes:0}\r\n'
+2021-01-19 13:55:27,662 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-19 13:55:28,166 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 0 0 
+2021-01-19 13:55:28,555 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-19 13:55:29,058 WARNING server Thread-1 : Received non-JSON from Arduino: b'{"yp":"TpupN:,"RGB":"200 0 0","brightness":80}\r\n'
+2021-01-19 13:55:41,797 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-19 13:55:42,297 INFO server Thread-1 : Info from Arduino: LED set to RGB: 200 0 0 
+2021-01-19 13:55:42,688 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-19 13:55:43,189 WARNING server Thread-1 : Received non-JSON from Arduino: b'{"tpe""""upN:,RB:2000,"rgtnss:0\r\n'
+2021-01-19 13:55:43,689 WARNING server Thread-1 : Received non-JSON from Arduino: b'y:T,pmO"0"G""0  "bihe"8}"p""T","pN:,RB20 ""ihns"8}\n'
+2021-01-19 13:55:44,189 WARNING server Thread-1 : Received non-JSON from Arduino: b'{tye:pumO"0"G":"0 00,brgtes:0\r{tp""""upN:,"RGB:2000,bghtes":}\r\n'
+2021-01-19 13:55:44,688 WARNING server Thread-1 : Received non-JSON from Arduino: b'"ye:T,pmO"0""0  ""rins80TuO"0"G""000,bihns"8}\n'
+2021-01-19 13:56:03,065 INFO server Thread-122 : Planted: 014 Nussalad Vera in 00-00-00

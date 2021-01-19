@@ -8,12 +8,15 @@ from threading import Lock
 
 import serial
 from flask import Flask, jsonify, redirect, render_template, request, session, url_for
+from flask_cors import CORS, cross_origin
 from flask_socketio import SocketIO, disconnect, emit
 from L_events import *
 from serial.tools import list_ports
 
 app = Flask(__name__)
 app.debug = True
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
+app.config["CORS_HEADERS"] = "Content-Type"
 
 logging.basicConfig(
     filename="record.log",
@@ -58,12 +61,12 @@ log.setLevel(logging.ERROR)
 async_mode = None
 thread = None
 
-app = Flask(__name__)
 app.config["SECRET_KEY"] = "secret!"
-socketio = SocketIO(app, async_mode=async_mode)
+socketio = SocketIO(app, cors_allowed_origins="*", async_mode=async_mode)
 
 
 @app.route("/")
+@cross_origin()
 def index():
     return render_template(
         "index.html",
@@ -74,27 +77,35 @@ def index():
 
 
 @app.route("/status")
+@cross_origin()
 def status():
     return render_template(
-        "status.html", async_mode=socketio.async_mode, plants=getPlants(),
+        "status.html",
+        async_mode=socketio.async_mode,
+        currentProg=getCurrentProgr(),
+        plants=getPlants(),
+        status=getStatus(),
     )
 
 
 # API programming
 # Get list of programs as JSON
 @app.route("/api/programs")
+@cross_origin()
 def program():
     return jsonify(getProg())
 
 
 # Get current program as JSON
 @app.route("/api/currentProgram")
+@cross_origin()
 def currentProgram():
     return jsonify(getCurrentProgr())
 
 
 # Get plants as JSON
 @app.route("/api/getPlants")
+@cross_origin()
 def getP():
     return jsonify(getPlants())
 
@@ -108,6 +119,7 @@ def getStatus():
 # https://attacomsian.com/blog/using-javascript-fetch-api-to-get-and-post-data
 # Post a command to the arduino via web interface like swith pump on or off, lights etc
 @app.route("/arduinoCommand", methods=["POST", "GET"])
+@cross_origin()
 def arduinoCommand():
 
     req = request.get_json()
@@ -122,6 +134,7 @@ def arduinoCommand():
 # https://attacomsian.com/blog/using-javascript-fetch-api-to-get-and-post-data
 # Post a command to the arduino via web interface like swith pump on or off, lights etc
 @app.route("/api/plant", methods=["POST", "GET"])
+@cross_origin()
 def p():
     req = request.get_json()
     print(req)
@@ -159,6 +172,7 @@ def p():
 
 # Post a command to the server, not really used for now
 @app.route("/serverCommand", methods=["POST", "GET"])
+@cross_origin()
 def serverCommand():
     if request.method == "POST":
         result = request.form

@@ -74,8 +74,6 @@
 
         // createCheckBoxes();
         var p = JSON.parse('{{ plants  | tojson | safe}}');
-        var s = JSON.parse('{{ status  | tojson | safe}}');
-        var pr = JSON.parse('{{ currentProg  | tojson | safe}}');
         // console.log(p.plants[1]);
         // console.log(p.plants.length);
 
@@ -83,7 +81,7 @@
         // do something with json
         // console.log("done!!!");
         // console.log(plants);
-        getStatus(p,s);
+        getStatus(p);
 
 
       });
@@ -163,7 +161,26 @@
           })
       }
 
-
+      function getCurrentProgram() {
+        fetch('http://127.0.0.1:5000/currentProgram')
+          .then(function(response) {
+            return response.json();
+          })
+          .then(function(data) {
+            const keys = Object.keys(data);
+            var ele = document.getElementById('currentProgramLabel');
+            keys.forEach((key, index) => {
+              // console.log(`${key}: ${data[key]}`);
+              ele.innerHTML = ele.innerHTML +
+                '<tr><td>' + key + '</td><td>' + data[key] + '</td><td></td></tr>';
+            });
+            for (var i = 0; i < data; i++) {
+              // POPULATE SELECT ELEMENT WITH JSON.
+              ele.innerHTML = ele.innerHTML +
+                '<tr><td>' + data[i] + '</td></tr>';
+            }
+          })
+      }
 
       function hexTorgb(hex) {
         return ['0x' + hex[1] + hex[2] | 0, '0x' + hex[3] + hex[4] | 0, '0x' + hex[5] + hex[6] | 0];
@@ -181,9 +198,20 @@
       }
 
           // https://gomakethings.com/how-to-use-the-fetch-method-to-make-multiple-api-calls-with-vanilla-javascript/
-      function getStatus(p,data) {
-
-
+      function getStatus(pa) {
+        fetch('http://127.0.0.1:5000/api/s', {
+  mode: 'cors',
+  headers: {
+    'Access-Control-Allow-Origin':'*'
+  })
+          .then(function(response) {
+            if (response.ok) {
+            		return response.json();
+            	} else {
+            		return Promise.reject(response);
+            	}
+              })
+          .then(function(data) {
             var ele = document.getElementById('T');
             // console.log(data)
             // Access the towers
@@ -201,21 +229,21 @@
                 row.setAttribute("id", "level-" + '0' + (t + 1) + '-' + zerofilledLevel)
                 // Acces the pods
                 var numberOfPods = data.towers[t].levels[l].pods.length;
-                for (var m = 0; m < numberOfPods; m++) {
-                  var cell = row.insertCell(m);
-                  let date = new Date(data.towers[t].levels[l].pods[m].plantedDate);
-                  cell.setAttribute("id", data.towers[t].levels[l].pods[m].podID)
-                  cell.innerHTML = '<span style = "color:grey;font-size:12px;"> ' + data.towers[t].levels[l].pods[m].podID + ' </span><br>';
+                for (var p = 0; p < numberOfPods; p++) {
+                  var cell = row.insertCell(p);
+                  let date = new Date(data.towers[t].levels[l].pods[p].plantedDate);
+                  cell.setAttribute("id", data.towers[t].levels[l].pods[p].podID)
+                  cell.innerHTML = '<span style = "color:grey;font-size:12px;"> ' + data.towers[t].levels[l].pods[p].podID + ' </span><br>';
 
                   // Adds select to plant plants
                   var sel = ""
                   var select = ""
-                  sel =  '<div class="select"><select style="color: black;" id="s' + data.towers[t].levels[l].pods[m].podID +  '" onchange="postPlant(this)"><option value="empty">empty</option>'
+                  sel =  '<div class="select"><select style="color: black;" id="s' + data.towers[t].levels[l].pods[p].podID +  '" onchange="postPlant(this)"><option value="empty">empty</option>'
 
-                  for (var x = 0; x <= p.plants.length -1; x++) {
-                    if (p.plants[x].plantID == data.towers[t].levels[l].pods[m].plantID) {selected = 'selected'} else {selected = ''}
+                  for (var x = 0; x <= pa.plants.length -1; x++) {
+                    if (pa.plants[x].plantID == data.towers[t].levels[l].pods[p].plantID) {selected = 'selected'} else {selected = ''}
 
-                    sel = sel + '<option value="' + p.plants[x].plantID +'"' + selected + '>' + p.plants[x].name + ' </option>'
+                    sel = sel + '<option value="' + pa.plants[x].plantID +'"' + selected + '>' + pa.plants[x].name + ' </option>'
                   } sel = sel +'</select></div>'
                   cell.innerHTML = cell.innerHTML + sel
 
@@ -225,7 +253,7 @@
                 }
               }
             }
-
+          })
       }
 
       var socket = io();
