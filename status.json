@@ -8,9 +8,9 @@
                     "pods": [
                         {
                             "podID": "00-00-00",
-                            "plantID": "014",
-                            "plantName": "Nussalad Vera",
-                            "plantedDate": "2021-01-19T12:56:03.100Z"
+                            "plantID": "003",
+                            "plantName": "Basilico Grande Genovese",
+                            "plantedDate": "2021-01-19T23:02:27.000Z"
                         },
                         {
                             "podID": "00-00-01",

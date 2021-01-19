@@ -8,16 +8,12 @@ from threading import Lock
 
 import serial
 from flask import Flask, jsonify, redirect, render_template, request, session, url_for
-
-# from flask_cors import CORS, cross_origin
 from flask_socketio import SocketIO, disconnect, emit
 from L_events import *
 from serial.tools import list_ports
 
 app = Flask(__name__)
 app.debug = True
-# cors = CORS(app, resources={r"/*": {"origins": "*"}})
-# app.config["CORS_HEADERS"] = "Content-Type"
 
 logging.basicConfig(
     filename="record.log",
@@ -62,51 +58,48 @@ log.setLevel(logging.ERROR)
 async_mode = None
 thread = None
 
+app = Flask(__name__)
 app.config["SECRET_KEY"] = "secret!"
-socketio = SocketIO(app, cors_allowed_origins="*", async_mode=async_mode)
+socketio = SocketIO(app, async_mode=async_mode)
 
 
 @app.route("/")
-# @cross_origin()
 def index():
     return render_template(
         "index.html",
         async_mode=socketio.async_mode,
         progr=getProg(),
+        plants=getPlants(),
         currentProg=getCurrentProgr(),
     )
 
 
 @app.route("/status")
-# @cross_origin()
 def status():
     return render_template(
         "status.html",
         async_mode=socketio.async_mode,
+        status=getStatus(),
         currentProg=getCurrentProgr(),
         plants=getPlants(),
-        status=getStatus(),
     )
 
 
 # API programming
 # Get list of programs as JSON
 @app.route("/api/programs")
-# @cross_origin()
 def program():
     return jsonify(getProg())
 
 
 # Get current program as JSON
 @app.route("/api/currentProgram")
-# @cross_origin()
 def currentProgram():
     return jsonify(getCurrentProgr())
 
 
 # Get plants as JSON
 @app.route("/api/getPlants")
-# @cross_origin()
 def getP():
     return jsonify(getPlants())
 
@@ -120,7 +113,6 @@ def getStatus():
 # https://attacomsian.com/blog/using-javascript-fetch-api-to-get-and-post-data
 # Post a command to the arduino via web interface like swith pump on or off, lights etc
 @app.route("/arduinoCommand", methods=["POST", "GET"])
-# @cross_origin()
 def arduinoCommand():
 
     req = request.get_json()
@@ -135,7 +127,6 @@ def arduinoCommand():
 # https://attacomsian.com/blog/using-javascript-fetch-api-to-get-and-post-data
 # Post a command to the arduino via web interface like swith pump on or off, lights etc
 @app.route("/api/plant", methods=["POST", "GET"])
-# @cross_origin()
 def p():
     req = request.get_json()
     print(req)
@@ -173,7 +164,6 @@ def p():
 
 # Post a command to the server, not really used for now
 @app.route("/serverCommand", methods=["POST", "GET"])
-# @cross_origin()
 def serverCommand():
     if request.method == "POST":
         result = request.form
@@ -331,19 +321,18 @@ def checkLights(currentProgram):
     obj_now = datetime.now()
     timeNow = str(obj_now.hour).zfill(2) + ":" + str(obj_now.minute).zfill(2)
     # lights (RGB, brightness, timeON/OFF)
+    # check if between light on timer
     if is_between(currentProgram["lightsON"], currentProgram["lightsOFF"], timeNow):
         try:
+            test = dataJSON["brightness"]
+
             if dataJSON["brightness"] == 0:  # print("Lights should be ON")
                 arduinoCommand2(
                     "setBrightness " + str(currentProgram["lightBrightness"])
                 )
                 arduinoCommand2("setLightRGB " + str(currentProgram["RGB"]))
-                app.logger.info(
-                    "Brightness set to: "
-                    + str(currentProgram["lightBrightness"])
-                    + " LED set to: "
-                    + str(currentProgram["RGB"])
-                )
+                print("Brightness set to default")
+                app.logger.info("Lights ON, RGB also set")
 
         except ValueError as e:
             print(e)
@@ -353,7 +342,7 @@ def checkLights(currentProgram):
             app.logger.info("Lights OFF, RGB also set")
 
 
-def initialize():
+if __name__ == "__main__":
     currentProgram = getCurrentProgr()
 
     # print(currentProgram["progName"])
@@ -378,15 +367,8 @@ def initialize():
     # checkT.stop()
     socketio.run(app)
 
-
-if __name__ == "__main__":
-    initialize()
-else:
-    print("Program imported")
-    initialize()
-
 """
-{
+
   "progName": "This is the current program",
   "pumpStartEvery": 2400,
   "pumpRunTime": 300,
