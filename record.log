@@ -1267,3 +1267,44 @@ ValueError: Too many packets in payload
 2021-01-20 00:06:02,630 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
 2021-01-20 00:06:03,133 INFO server Thread-1 : Info from Arduino: LED set to RGB: 255 0 255 
 2021-01-20 00:06:03,522 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-20 00:06:48,213 WARNING server Thread-1 : Received non-JSON from Arduino: b',"brightness":80}\r\n'
+2021-01-20 00:06:48,215 WARNING server Thread-1 : Received non-JSON from Arduino: b'ess":80}\r\n'
+2021-01-20 00:06:48,227 WARNING server Thread-1 : Received non-JSON from Arduino: b'ess":80}\r\n'
+2021-01-20 00:06:50,329 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-20 00:06:50,828 INFO server Thread-1 : Info from Arduino: LED set to RGB: 255 0 255 
+2021-01-20 00:06:51,220 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-20 09:18:02,161 INFO server MainThread : System started. System time is: 09:18
+2021-01-20 09:18:04,276 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-20 09:18:04,776 INFO server Thread-1 : Info from Arduino: LED set to RGB: 255 0 255 
+2021-01-20 09:18:05,164 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-20 09:19:12,853 WARNING server Thread-1 : Received non-JSON from Arduino: b',"RGB":"255 0 255","brightness":80}\r\n'
+2021-01-20 09:19:12,854 WARNING server Thread-1 : Received non-JSON from Arduino: b'ess":80}\r\n'
+2021-01-20 09:19:12,855 WARNING server Thread-1 : Received non-JSON from Arduino: b'ess":80}\r\n'
+2021-01-20 09:19:12,856 INFO server MainThread : System started. System time is: 09:19
+2021-01-20 09:19:13,890 ERROR engineio.server Thread-12 : post request handler error
+Traceback (most recent call last):
+  File "/home/paolo/VEnv/roboGarden/lib/python3.8/site-packages/engineio/server.py", line 411, in handle_request
+    socket.handle_post_request(environ)
+  File "/home/paolo/VEnv/roboGarden/lib/python3.8/site-packages/engineio/socket.py", line 124, in handle_post_request
+    p = payload.Payload(encoded_payload=body)
+  File "/home/paolo/VEnv/roboGarden/lib/python3.8/site-packages/engineio/payload.py", line 13, in __init__
+    self.decode(encoded_payload)
+  File "/home/paolo/VEnv/roboGarden/lib/python3.8/site-packages/engineio/payload.py", line 44, in decode
+    raise ValueError('Too many packets in payload')
+ValueError: Too many packets in payload
+2021-01-20 09:19:14,974 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-20 09:19:15,474 INFO server Thread-1 : Info from Arduino: LED set to RGB: 255 0 255 
+2021-01-20 09:19:15,859 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-20 09:20:17,112 WARNING server Thread-1 : Received non-JSON from Arduino: b'80}\r\n'
+2021-01-20 09:20:17,113 WARNING server Thread-1 : Received non-JSON from Arduino: b'ess":80}\r\n'
+2021-01-20 09:20:17,116 INFO server MainThread : System started. System time is: 09:20
+2021-01-20 09:20:17,130 WARNING server Thread-1 : Received non-JSON from Arduino: b'ess":80}\r\n'
+2021-01-20 09:20:19,225 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-20 09:20:19,730 INFO server Thread-1 : Info from Arduino: LED set to RGB: 255 0 255 
+2021-01-20 09:20:20,118 INFO server Thread-2 : Lights ON, RGB also set
+2021-01-20 09:21:03,240 WARNING server Thread-1 : Received non-JSON from Arduino: b'0}\r\n'
+2021-01-20 09:21:03,242 WARNING server Thread-1 : Received non-JSON from Arduino: b'ess":80}\r\n'
+2021-01-20 09:21:03,243 INFO server MainThread : System started. System time is: 09:21
+2021-01-20 09:21:05,360 INFO server Thread-1 : Info from Arduino: Brightness set to: 80%
+2021-01-20 09:21:05,860 INFO server Thread-1 : Info from Arduino: LED set to RGB: 255 0 255 
+2021-01-20 09:21:06,246 INFO server Thread-2 : Lights ON, RGB also set

@@ -316,12 +316,10 @@ def checkPump(duration):
 
 
 # Function to check the lights. If we are in the time range it will switch the light on and give the current proram RGB color
-# TODO when teh web UI set pump to off it returns an error (even with the try statement)
+# TODO when the web UI set pump to off it returns an error (even with the try statement)
 def checkLights(currentProgram):
     obj_now = datetime.now()
     timeNow = str(obj_now.hour).zfill(2) + ":" + str(obj_now.minute).zfill(2)
-    # lights (RGB, brightness, timeON/OFF)
-    # check if between light on timer
     if is_between(currentProgram["lightsON"], currentProgram["lightsOFF"], timeNow):
         try:
             test = dataJSON["brightness"]
@@ -345,11 +343,6 @@ def checkLights(currentProgram):
 def initialize():
     currentProgram = getCurrentProgr()
 
-    # print(currentProgram["progName"])
-    # print(currentProgram["pumpStartEvery"])
-    # print(currentProgram["lightBrightness"])
-    # print(currentProgram["RGB"])
-
     checkL = RepeatedTimer(
         2, checkLights, currentProgram
     )  # it auto-starts, no need of rt.start()
@@ -358,7 +351,8 @@ def initialize():
     )  # it auto-starts, no need of rt.start()
     obj_now = datetime.now()
     timeNow = str(obj_now.hour).zfill(2) + ":" + str(obj_now.minute).zfill(2)
-    # checkT.stop()
+    app.logger.info("System started. System time is: " + timeNow)
+
     socketio.run(app)
 
 
