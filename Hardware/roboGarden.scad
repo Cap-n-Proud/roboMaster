@@ -1,7 +1,7 @@
 $fn = 200;
-towerDiam = 75;
+ = 75;
 
-collectorDiam =25;
+
 
 towerThickness = 2;
 towerID = towerDiam - 2* towerThickness;
@@ -24,7 +24,7 @@ borderBaseY = 30;
 
 lightBeamDiam = 20;
 
-pipeDiamIN = 8;
+
 
 T = 1;
 
@@ -306,20 +306,62 @@ module sprinkler() {
 
 //roboGarden();
 colFunnelHeight =10;
+collectorCollarH = 40;
+drainPipeHeight = 30;
+
+collectorDiam =25;
 
 
-difference(){
-translate([0,0,colFunnelHeight])cylinder(h=2*colFunnelHeight , d2=collectorDiam ,d1=collectorDiam);
-translate([0,0,colFunnelHeight])cylinder(h=2*colFunnelHeight , d2=collectorDiam - towerThickness ,d1=collectorDiam-towerThickness);
+module collectorShell(){
+union(){
+ translate([0,0,collectorCollarH])cylinder(h=collectorCollarH, d2=collectorDiam,d1=collectorDiam);
+translate([0,0,0])cylinder(h=collectorCollarH, d2=towerDiam + 2*towerThickness ,d1=towerDiam + 2*towerThickness);
+}
 
 }
+
+module collectorHole(){
+union(){
+    //Funnel
+ translate([0,0,collectorCollarH-colFunnelHeight])cylinder(h=colFunnelHeight , d2=collectorDiam-2*towerThickness,d1=towerDiam);
+    //Top
+translate([0,0,-2*collectorCollarH])cylinder(h=6*collectorCollarH, d2=-2*towerThickness,d1=collectorDiam-2*towerThickness);
+    //Bottom
+translate([0,0,-colFunnelHeight])cylinder(h=collectorCollarH, d2=towerDiam ,d1=towerDiam );
+}}
+
+module collector(){
 difference(){
-cylinder(h=colFunnelHeight , d2=collectorDiam ,d1=towerDiam + 2*towerThickness);
-cylinder(h=colFunnelHeight , d2=collectorDiam - towerThickness,d1=towerDiam);
-}
-difference()
-{
-    translate([0,0,-3*colFunnelHeight])cylinder(h=3*colFunnelHeight , d2=towerDiam + 2*towerThickness ,d1=towerDiam + 2*towerThickness);
+collectorShell();
+translate([0,0,-2])collectorHole();
     
-    translate([0,0,-3*colFunnelHeight])cylinder(h=3*colFunnelHeight , d2=towerDiam, d1=towerDiam);
+    
+}}
+
+
+attachX = 10;
+attachY = 15;
+attachZ = 5;
+
+module SUB_support(){    
+    difference(){cube([attachX,attachY,attachZ]);
+    translate([attachX/2,attachY/2+2,-attachZ/2])cylinder(h=10,d1=3,d2=3);}
 }
+
+module attach(){    
+translate([towerDiam/2,0,0])rotate([0,0,-90])translate([-attachX/2,0,0])SUB_support();
+                
+        
+    
+mirror(){    
+ translate([towerDiam/2,0,0])rotate([0,0,-90])translate([-attachX/2,0,0])SUB_support();
+}
+}
+
+module attachment(){
+attach();
+rotate([0,0,90])attach();
+}
+
+collector();
+translate([0,0,collectorCollarH-attachZ])attachment();
